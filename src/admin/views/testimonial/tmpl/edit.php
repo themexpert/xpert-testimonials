@@ -35,7 +35,7 @@ JFactory::getDocument()->addScriptDeclaration("
 	<div class="form-horizontal">
 		<?php echo JHtml::_('bootstrap.startTabSet', 'myTab', array('active' => 'details')); ?>
 
-		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'details', empty($this->item->id) ? JText::_('COM_XPERT_TEXTIMONIALS_NEW_TESTIMONIAL', true) : JText::_('COM_XPERT_TEXTIMONIALS_EDIT_TESTIMONIAL', true)); ?>
+		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'details', empty($this->item->id) ? JText::_('COM_XPERT_TESTIMONIALS_NEW_TESTIMONIAL', true) : JText::_('COM_XPERT_TESTIMONIALS_EDIT_TESTIMONIAL', true)); ?>
 		<div class="row-fluid">
 			<div class="span9">
 				<div class="form-vertical">

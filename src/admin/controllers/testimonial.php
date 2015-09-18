@@ -17,6 +17,22 @@ defined('_JEXEC') or die;
 class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 {
 	/**
+	 * The URL view item variable.
+	 *
+	 * @var    string
+	 * @since  12.2
+	 */
+	protected $view_item = 'testimonial';
+
+	/**
+	 * The URL view list variable.
+	 *
+	 * @var    string
+	 * @since  12.2
+	 */
+	protected $view_list = 'xpert_testimonials';
+
+	/**
 	 * Method override to check if you can add a new record.
 	 *
 	 * @param   array  $data  An array of input data.
@@ -93,7 +109,7 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 		$model = $this->getModel('Testimonial', '', array());
 
 		// Preset the redirect
-		$this->setRedirect(JRoute::_('index.php?option=com_xpert_testimonials&view=testimonials' . $this->getRedirectToListAppend(), false));
+		$this->setRedirect(JRoute::_('index.php?option=com_xpert_testimonials&view=xpert_testimonials' . $this->getRedirectToListAppend(), false));
 
 		return parent::batch($model);
 	}
@@ -114,7 +130,7 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 
 		if ($task == 'save')
 		{
-			$this->setRedirect(JRoute::_('index.php?option=com_xpert_testimonials&view=testimonials', false));
+			$this->setRedirect(JRoute::_('index.php?option=com_xpert_testimonials&view=xpert_testimonials', false));
 		}
 	}
 }

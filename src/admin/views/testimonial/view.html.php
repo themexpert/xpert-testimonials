@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.5
  */
-class Xpert_TestimonialsTableViewTestimonial extends JViewLegacy
+class Xpert_TestimonialsViewTestimonial extends JViewLegacy
 {
 	protected $state;
 
@@ -58,7 +58,7 @@ class Xpert_TestimonialsTableViewTestimonial extends JViewLegacy
 		// Since we don't track these assets at the item level, use the category id.
 		$canDo		= JHelperContent::getActions('com_xpert_testimonials', 'category', $this->item->catid);
 
-		JToolbarHelper::title($isNew ? JText::_('COM_XPERT_TEXTIMONIALS_MANAGER_TESTIMONIAL_NEW') : JText::_('COM_XPERT_TEXTIMONIALS_MANAGER_TESTIMONIAL_EDIT'), 'link testimonials');
+		JToolbarHelper::title($isNew ? JText::_('COM_XPERT_TESTIMONIALS_MANAGER_TESTIMONIAL_NEW') : JText::_('COM_XPERT_TESTIMONIALS_MANAGER_TESTIMONIAL_EDIT'), 'link testimonials');
 
 		// If not checked out, can save the item.
 		if (!$checkedOut && ($canDo->get('core.edit')||(count($user->getAuthorisedCategories('com_xpert_testimonials', 'core.create')))))

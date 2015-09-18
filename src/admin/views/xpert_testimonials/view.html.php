@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.5
  */
-class Xpert_TestimonialsTableViewXpert Testimonials extends JViewLegacy
+class Xpert_TestimonialsViewXpert_Testimonials extends JViewLegacy
 {
 	protected $items;
 
@@ -33,7 +33,7 @@ class Xpert_TestimonialsTableViewXpert Testimonials extends JViewLegacy
 		$this->items      = $this->get('Items');
 		$this->pagination = $this->get('Pagination');
 
-		Xpert_TestimonialsTableHelper::addSubmenu('testimonials');
+		Xpert_TestimonialsHelper::addSubmenu('xpert_testimonials');
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -54,7 +54,7 @@ class Xpert_TestimonialsTableViewXpert Testimonials extends JViewLegacy
 	 */
 	protected function addToolbar()
 	{
-		require_once JPATH_COMPONENT . '/helpers/testimonials.php';
+		require_once JPATH_COMPONENT . '/helpers/xpert_testimonials.php';
 
 		$state = $this->get('State');
 		$canDo = JHelperContent::getActions('com_xpert_testimonials', 'category', $state->get('filter.category_id'));
@@ -63,7 +63,7 @@ class Xpert_TestimonialsTableViewXpert Testimonials extends JViewLegacy
 		// Get the toolbar object instance
 		$bar = JToolBar::getInstance('toolbar');
 
-		JToolbarHelper::title(JText::_('COM_XPERT_TEXTIMONIALS_MANAGER_TESTIMONIALS'), 'link testimonials');
+		JToolbarHelper::title(JText::_('COM_XPERT_TESTIMONIALS_MANAGER_TESTIMONIALS'), 'link testimonials');
 
 		if (count($user->getAuthorisedCategories('com_xpert_testimonials', 'core.create')) > 0)
 		{

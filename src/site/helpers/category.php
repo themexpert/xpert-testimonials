@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.6
  */
-class Xpert_TestimonialsTableCategories extends JCategories
+class Xpert_TestimonialsHelperCategories extends JCategories
 {
 	/**
 	 * Constructor

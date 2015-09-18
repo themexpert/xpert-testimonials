@@ -14,8 +14,24 @@ defined('_JEXEC') or die;
  *
  * @since  1.6
  */
-class Xpert_TestimonialsControllerTestimonials Testimonials extends JControllerAdmin
+class Xpert_TestimonialsControllerXpert_Testimonials Testimonials extends JControllerAdmin
 {
+	/**
+	 * The URL view item variable.
+	 *
+	 * @var    string
+	 * @since  12.2
+	 */
+	protected $view_item = 'testimonial';
+
+	/**
+	 * The URL view list variable.
+	 *
+	 * @var    string
+	 * @since  12.2
+	 */
+	protected $view_list = 'xpert_testimonials';
+
 	/**
 	 * Proxy for getModel
 	 *

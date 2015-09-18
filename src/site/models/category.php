@@ -272,7 +272,7 @@ class Xpert_TestimonialsModelCategory extends JModelList
 			$options['countItems'] = $params->get('show_cat_num_links_cat', 1)
 				|| $params->get('show_empty_categories', 0);
 
-			$categories = JCategories::getInstance('Xpert_TestimonialsTable', $options);
+			$categories = JCategories::getInstance('Xpert_TestimonialsHelper', $options);
 			$this->_item = $categories->get($this->getState('category.id', 'root'));
 
 			if (is_object($this->_item))

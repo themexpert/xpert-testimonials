@@ -1,7 +1,8 @@
 {
 	"wwwDir"					: "/home/abu/www/joomla/joomla_344",
 	"browserConfig"		: {
-						"proxy"	: "http://localhost/joomla/joomla_344/"
+						"proxy"	: "http://localhost/joomla/joomla_344/",
+						"port"	: ""
 	},
 	"defaultTasks"     : ["copy", "watch", "browser-sync"],
 	"extensions"       : {

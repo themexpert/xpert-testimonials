@@ -16,7 +16,7 @@ use Joomla\String\String;
  *
  * @since  1.5
  */
-class Xpert_TestimonialsTableTableTestimonial extends JTable
+class Xpert_TestimonialsHelperTestimonial extends JTable
 {
 	/**
 	 * Ensure the params and metadata in json encoded in the bind method
@@ -93,11 +93,11 @@ class Xpert_TestimonialsTableTableTestimonial extends JTable
 		}
 
 		// Verify that the alias is unique
-		$table = JTable::getInstance('Testimonial', 'Xpert_TestimonialsTableTable');
+		$table = JTable::getInstance('Testimonial', 'Xpert_TestimonialsHelper');
 
 		if ($table->load(array('alias' => $this->alias, 'catid' => $this->catid)) && ($table->id != $this->id || $this->id == 0))
 		{
-			$this->setError(JText::_('COM_XPERT_TEXTIMONIALS_ERROR_UNIQUE_ALIAS'));
+			$this->setError(JText::_('COM_XPERT_TESTIMONIALS_ERROR_UNIQUE_ALIAS'));
 
 			return false;
 		}
@@ -119,7 +119,7 @@ class Xpert_TestimonialsTableTableTestimonial extends JTable
 	{
 		if (JFilterInput::checkAttribute(array('href', $this->url)))
 		{
-			$this->setError(JText::_('COM_XPERT_TEXTIMONIALS_ERR_TABLES_PROVIDE_URL'));
+			$this->setError(JText::_('COM_XPERT_TESTIMONIALS_ERR_TABLES_PROVIDE_URL'));
 
 			return false;
 		}
@@ -127,7 +127,7 @@ class Xpert_TestimonialsTableTableTestimonial extends JTable
 		// check for valid name
 		if (trim($this->title) == '')
 		{
-			$this->setError(JText::_('COM_XPERT_TEXTIMONIALS_ERR_TABLES_TITLE'));
+			$this->setError(JText::_('COM_XPERT_TESTIMONIALS_ERR_TABLES_TITLE'));
 			return false;
 		}
 
@@ -145,7 +145,7 @@ class Xpert_TestimonialsTableTableTestimonial extends JTable
 
 		if ($xid && $xid != (int) $this->id)
 		{
-			$this->setError(JText::_('COM_XPERT_TEXTIMONIALS_ERR_TABLES_NAME'));
+			$this->setError(JText::_('COM_XPERT_TESTIMONIALS_ERR_TABLES_NAME'));
 
 			return false;
 		}

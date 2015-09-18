@@ -23,7 +23,7 @@ if (count($this->children[$this->category->id]) > 0 && $this->maxLevel != 0) :
 	?>
 	<li<?php echo $class; ?>>
 		<?php $class = ''; ?>
-			<span class="item-title"><a href="<?php echo JRoute::_(Xpert_TestimonialsTableHelperRoute::getCategoryRoute($child->id));?>">
+			<span class="item-title"><a href="<?php echo JRoute::_(Xpert_TestimonialsHelperRoute::getCategoryRoute($child->id));?>">
 				<?php echo $this->escape($child->title); ?></a>
 			</span>
 
@@ -37,7 +37,7 @@ if (count($this->children[$this->category->id]) > 0 && $this->maxLevel != 0) :
 
             <?php if ($this->params->get('show_cat_num_links') == 1) :?>
 			<dl class="testimonial-count"><dt>
-				<?php echo JText::_('COM_XPERT_TEXTIMONIALS_NUM'); ?></dt>
+				<?php echo JText::_('COM_XPERT_TESTIMONIALS_NUM'); ?></dt>
 				<dd><?php echo $child->numitems; ?></dd>
 			</dl>
 		<?php endif; ?>

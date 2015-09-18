@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.6
  */
-class Xpert_TestimonialsTableHelper extends JHelperContent
+class Xpert_TestimonialsHelper extends JHelperContent
 {
 	/**
 	 * Configure the Linkbar.
@@ -25,16 +25,16 @@ class Xpert_TestimonialsTableHelper extends JHelperContent
 	 *
 	 * @since   1.6
 	 */
-	public static function addSubmenu($vName = 'testimonials')
+	public static function addSubmenu($vName = 'xpert_testimonials')
 	{
 		JHtmlSidebar::addEntry(
-			JText::_('COM_XPERT_TEXTIMONIALS_SUBMENU_TESTIMONIALS'),
-			'index.php?option=com_xpert_testimonials&view=testimonials',
-			$vName == 'testimonials'
+			JText::_('COM_XPERT_TESTIMONIALS_SUBMENU_TESTIMONIALS'),
+			'index.php?option=com_xpert_testimonials&view=xpert_testimonials',
+			$vName == 'xpert_testimonials'
 		);
 
 		JHtmlSidebar::addEntry(
-			JText::_('COM_XPERT_TEXTIMONIALS_SUBMENU_CATEGORIES'),
+			JText::_('COM_XPERT_TESTIMONIALS_SUBMENU_CATEGORIES'),
 			'index.php?option=com_categories&extension=com_xpert_testimonials',
 			$vName == 'categories'
 		);

@@ -50,7 +50,7 @@ class Com_Xpert_TestimonialsInstallerScript
 			// Check to make sure our data is valid
 			if (!$category->check())
 			{
-				JFactory::getApplication()->enqueueMessage(JText::sprintf('COM_XPERT_TEXTIMONIALS_ERROR_INSTALL_CATEGORY', $category->getError()));
+				JFactory::getApplication()->enqueueMessage(JText::sprintf('COM_XPERT_TESTIMONIALS_ERROR_INSTALL_CATEGORY', $category->getError()));
 
 				return;
 			}
@@ -58,7 +58,7 @@ class Com_Xpert_TestimonialsInstallerScript
 			// Now store the category
 			if (!$category->store(true))
 			{
-				JFactory::getApplication()->enqueueMessage(JText::sprintf('COM_XPERT_TEXTIMONIALS_ERROR_INSTALL_CATEGORY', $category->getError()));
+				JFactory::getApplication()->enqueueMessage(JText::sprintf('COM_XPERT_TESTIMONIALS_ERROR_INSTALL_CATEGORY', $category->getError()));
 
 				return;
 			}
@@ -146,10 +146,10 @@ class Com_Xpert_TestimonialsInstallerScript
 		// 	$query->values(
 		// 		$db->quote('Testimonial') . ', '
 		// 		. $db->quote('com_xpert_testimonials.testimonial') . ', '
-		// 		. $db->quote('{"special":{"dbtable":"#__xpert_testimonials","key":"id","type":"Testimonial","prefix":"Xpert_TestimonialsTableTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}') . ', '
+		// 		. $db->quote('{"special":{"dbtable":"#__xpert_testimonials","key":"id","type":"Testimonial","prefix":"Xpert_TestimonialsHelper","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}') . ', '
 		// 		. $db->quote('') . ', '
 		// 		. $db->quote('{"common":{"core_content_item_id":"id","core_title":"title","core_state":"state","core_alias":"alias","core_created_time":"created","core_modified_time":"modified","core_body":"description", "core_hits":"hits","core_publish_up":"publish_up","core_publish_down":"publish_down","core_access":"access", "core_params":"params", "core_featured":"featured", "core_metadata":"metadata", "core_language":"language", "core_images":"images", "core_urls":"url", "core_version":"version", "core_ordering":"ordering", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"catid", "core_xreference":"xreference", "asset_id":"null"}, "special":{}}') . ', '
-		// 		. $db->quote('Xpert_TestimonialsTableHelperRoute::getTestimonialRoute') . ', '
+		// 		. $db->quote('Xpert_TestimonialsHelperRoute::getTestimonialRoute') . ', '
 		// 		. $db->quote('{"formFile":"administrator\\/components\\/com_xpert_testimonials\\/models\\/forms\\/testimonial.xml", "hideFields":["asset_id","checked_out","checked_out_time","version","featured","images"], "ignoreChanges":["modified_by", "modified", "checked_out", "checked_out_time", "version", "hits"], "convertToInt":["publish_up", "publish_down", "featured", "ordering"], "displayLookup":[{"sourceColumn":"catid","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"created_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"} ]}')
 		// 	);
 		//
@@ -170,7 +170,7 @@ class Com_Xpert_TestimonialsInstallerScript
 		// 		. $db->quote('{"special":{"dbtable":"#__categories","key":"id","type":"Category","prefix":"JTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}') . ', '
 		// 		. $db->quote('') . ', '
 		// 		. $db->quote('{"common":{"core_content_item_id":"id","core_title":"title","core_state":"published","core_alias":"alias","core_created_time":"created_time","core_modified_time":"modified_time","core_body":"description", "core_hits":"hits","core_publish_up":"null","core_publish_down":"null","core_access":"access", "core_params":"params", "core_featured":"null", "core_metadata":"metadata", "core_language":"language", "core_images":"null", "core_urls":"null", "core_version":"version", "core_ordering":"null", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"parent_id", "core_xreference":"null", "asset_id":"asset_id"}, "special":{"parent_id":"parent_id","lft":"lft","rgt":"rgt","level":"level","path":"path","extension":"extension","note":"note"}}') . ', '
-		// 		. $db->quote('Xpert_TestimonialsTableHelperRoute::getCategoryRoute') . ', '
+		// 		. $db->quote('Xpert_TestimonialsHelperRoute::getCategoryRoute') . ', '
 		// 		. $db->quote('{"formFile":"administrator\\/components\\/com_categories\\/models\\/forms\\/category.xml", "hideFields":["asset_id","checked_out","checked_out_time","version","lft","rgt","level","path","extension"], "ignoreChanges":["modified_user_id", "modified_time", "checked_out", "checked_out_time", "version", "hits", "path"],"convertToInt":["publish_up", "publish_down"], "displayLookup":[{"sourceColumn":"created_user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"parent_id","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"}]}')
 		// 	);
 		//

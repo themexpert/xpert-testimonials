@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.5
  */
-class Xpert_TestimonialsTableViewCategories extends JViewCategories
+class Xpert_TestimonialsViewCategories extends JViewCategories
 {
 	protected $item = null;
 
@@ -22,7 +22,7 @@ class Xpert_TestimonialsTableViewCategories extends JViewCategories
 	 * @var    string  Default title to use for page title
 	 * @since  3.2
 	 */
-	protected $defaultPageTitle = 'COM_XPERT_TEXTIMONIALS_DEFAULT_PAGE_TITLE';
+	protected $defaultPageTitle = 'COM_XPERT_TESTIMONIALS_DEFAULT_PAGE_TITLE';
 
 	/**
 	 * @var    string  The name of the extension for the category

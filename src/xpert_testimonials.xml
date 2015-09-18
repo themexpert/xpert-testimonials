@@ -8,7 +8,7 @@
 	<authorEmail>info@themexpert.com</authorEmail>
 	<authorUrl>www.themexpert.com</authorUrl>
 	<version>1.0.0</version>
-	<description>COM_XPERT_TEXTIMONIALS_XML_DESCRIPTION</description>
+	<description>COM_XPERT_TESTIMONIALS_XML_DESCRIPTION</description>
 	<scriptfile>script.php</scriptfile>
 
 	<install>
@@ -21,11 +21,11 @@
 			<file charset="utf8" driver="mysql">sql/uninstall.mysql.sql</file>
 		</sql>
 	</uninstall>
-	<update>
+	<!-- <update>
 		<schemas>
 			<schemapath type="mysql">sql/updates/mysql</schemapath>
 		</schemas>
-	</update>
+	</update> -->
 
 	<files folder="site">
 		<filename>xpert_testimonials.php</filename>

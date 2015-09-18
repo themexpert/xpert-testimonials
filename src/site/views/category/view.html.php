@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.5
  */
-class Xpert_TestimonialsTableViewCategory extends JViewCategory
+class Xpert_TestimonialsViewCategory extends JViewCategory
 {
 	/**
 	 * Execute and display a template script.
@@ -75,7 +75,7 @@ class Xpert_TestimonialsTableViewCategory extends JViewCategory
 		}
 		else
 		{
-			$this->params->def('page_heading', JText::_('COM_XPERT_TEXTIMONIALS_DEFAULT_PAGE_TITLE'));
+			$this->params->def('page_heading', JText::_('COM_XPERT_TESTIMONIALS_DEFAULT_PAGE_TITLE'));
 		}
 
 		$id = (int) @$menu->query['id'];
@@ -88,7 +88,7 @@ class Xpert_TestimonialsTableViewCategory extends JViewCategory
 
 			while (($menu->query['option'] != 'com_xpert_testimonials' || $id != $category->id) && $category->id > 1)
 			{
-				$path[] = array('title' => $category->title, 'link' => Xpert_TestimonialsTableHelperRoute::getCategoryRoute($category->id));
+				$path[] = array('title' => $category->title, 'link' => Xpert_TestimonialsHelperRoute::getCategoryRoute($category->id));
 				$category = $category->getParent();
 			}
 

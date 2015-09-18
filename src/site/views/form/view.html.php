@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.5
  */
-class Xpert_TestimonialsTableViewForm extends JViewLegacy
+class Xpert_TestimonialsViewForm extends JViewLegacy
 {
 	protected $form;
 
@@ -91,11 +91,11 @@ class Xpert_TestimonialsTableViewForm extends JViewLegacy
 
 		if (empty($this->item->id))
 		{
-			$head = JText::_('COM_XPERT_TEXTIMONIALS_FORM_SUBMIT_TESTIMONIAL');
+			$head = JText::_('COM_XPERT_TESTIMONIALS_FORM_SUBMIT_TESTIMONIAL');
 		}
 		else
 		{
-			$head = JText::_('COM_XPERT_TEXTIMONIALS_FORM_EDIT_TESTIMONIAL');
+			$head = JText::_('COM_XPERT_TESTIMONIALS_FORM_EDIT_TESTIMONIAL');
 		}
 
 		if ($menu)

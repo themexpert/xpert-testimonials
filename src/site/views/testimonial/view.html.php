@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.5
  */
-class Xpert_TestimonialsTableViewTestimonial extends JViewLegacy
+class Xpert_TestimonialsViewTestimonial extends JViewLegacy
 {
 	protected $state;
 
@@ -39,7 +39,7 @@ class Xpert_TestimonialsTableViewTestimonial extends JViewLegacy
 		else
 		{
 			//TODO create proper error handling
-			JFactory::getApplication()->redirect(JRoute::_('index.php'), JText::_('COM_XPERT_TEXTIMONIALS_ERROR_TESTIMONIAL_NOT_FOUND'), 'notice');
+			JFactory::getApplication()->redirect(JRoute::_('index.php'), JText::_('COM_XPERT_TESTIMONIALS_ERROR_TESTIMONIAL_NOT_FOUND'), 'notice');
 		}
 	}
 }

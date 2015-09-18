@@ -9,7 +9,7 @@
 
 defined('_JEXEC') or die;
 
-JLoader::register('Xpert_TestimonialsTableHelper', JPATH_ADMINISTRATOR . '/components/com_xpert_testimonials/helpers/testimonials.php');
+JLoader::register('Xpert_TestimonialsHelper', JPATH_ADMINISTRATOR . '/components/com_xpert_testimonials/helpers/xpert_testimonials.php');
 JLoader::register('CategoryHelperAssociation', JPATH_ADMINISTRATOR . '/components/com_categories/helpers/association.php');
 
 /**
@@ -17,7 +17,7 @@ JLoader::register('CategoryHelperAssociation', JPATH_ADMINISTRATOR . '/component
  *
  * @since  3.0
  */
-abstract class Xpert_TestimonialsTableHelperAssociation extends CategoryHelperAssociation
+abstract class Xpert_TestimonialsHelperAssociation extends CategoryHelperAssociation
 {
 	/**
 	 * Method to get the associations for a given item

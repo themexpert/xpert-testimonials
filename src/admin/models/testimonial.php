@@ -33,7 +33,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelAdmin
 	 * @var    string
 	 * @since  1.6
 	 */
-	protected $text_prefix = 'COM_XPERT_TEXTIMONIALS';
+	protected $text_prefix = 'COM_XPERT_TESTIMONIALS';
 
 	/**
 	 * Method to test whether a record can be deleted.
@@ -92,7 +92,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelAdmin
 	 *
 	 * @since   1.6
 	 */
-	public function getTable($type = 'Testimonial', $prefix = 'Xpert_TestimonialsTableTable', $config = array())
+	public function getTable($type = 'Testimonial', $prefix = 'Xpert_TestimonialsHelper', $config = array())
 	{
 		return JTable::getInstance($type, $prefix, $config);
 	}

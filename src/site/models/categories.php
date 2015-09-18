@@ -101,7 +101,7 @@ class Xpert_TestimonialsModelCategories extends JModelList
 
 			$options = array();
 			$options['countItems'] = $params->get('show_cat_num_links', 1) || !$params->get('show_empty_categories_cat', 0);
-			$categories = JCategories::getInstance('Xpert_TestimonialsTable', $options);
+			$categories = JCategories::getInstance('Xpert_TestimonialsHelper', $options);
 			$this->_parent = $categories->get($this->getState('filter.parentId', 'root'));
 
 			if (is_object($this->_parent))

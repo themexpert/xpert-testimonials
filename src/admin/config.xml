@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
 	<fieldset name="component"
-		label="COM_XPERT_TEXTIMONIALS_COMPONENT_LABEL"
-		description="COM_XPERT_TEXTIMONIALS_COMPONENT_DESC"
+		label="COM_XPERT_TESTIMONIALS_COMPONENT_LABEL"
+		description="COM_XPERT_TESTIMONIALS_COMPONENT_DESC"
 	>
 
 		<field name="target" type="list"
 			default="0"
-			description="COM_XPERT_TEXTIMONIALS_FIELD_TARGET_DESC"
-			label="COM_XPERT_TEXTIMONIALS_FIELD_TARGET_LABEL"
+			description="COM_XPERT_TESTIMONIALS_FIELD_TARGET_DESC"
+			label="COM_XPERT_TESTIMONIALS_FIELD_TARGET_LABEL"
 		>
 			<option value="0">JBROWSERTARGET_PARENT</option>
 			<option value="1">JBROWSERTARGET_NEW</option>
@@ -40,44 +40,44 @@
 		<field	name="count_clicks" type="radio"
 				class="btn-group btn-group-yesno"
 				default="1"
-				label="COM_XPERT_TEXTIMONIALS_FIELD_COUNTCLICKS_LABEL"
-				description="COM_XPERT_TEXTIMONIALS_FIELD_COUNTCLICKS_DESC">
+				label="COM_XPERT_TESTIMONIALS_FIELD_COUNTCLICKS_LABEL"
+				description="COM_XPERT_TESTIMONIALS_FIELD_COUNTCLICKS_DESC">
 				<option value="1">JYES</option>
 				<option value="0">JNO</option>
 		</field>
 
 		<field	name="icons" type="list"
 				default="1"
-				label="COM_XPERT_TEXTIMONIALS_FIELD_ICON_LABEL"
-				description="COM_XPERT_TEXTIMONIALS_FIELD_ICON_DESC"
+				label="COM_XPERT_TESTIMONIALS_FIELD_ICON_LABEL"
+				description="COM_XPERT_TESTIMONIALS_FIELD_ICON_DESC"
 				filter="integer">
-				<option value="0">COM_XPERT_TEXTIMONIALS_FIELD_ICON_OPTION_TEXT</option>
-				<option value="1">COM_XPERT_TEXTIMONIALS_FIELD_ICON_OPTION_ICON</option>
-				<option value="2">COM_XPERT_TEXTIMONIALS_FIELD_ICON_OPTION_TESTIMONIAL</option>
+				<option value="0">COM_XPERT_TESTIMONIALS_FIELD_ICON_OPTION_TEXT</option>
+				<option value="1">COM_XPERT_TESTIMONIALS_FIELD_ICON_OPTION_ICON</option>
+				<option value="2">COM_XPERT_TESTIMONIALS_FIELD_ICON_OPTION_TESTIMONIAL</option>
 		</field>
 
 		<field name="link_icons" type="media"
-			description="COM_XPERT_TEXTIMONIALS_FIELD_CONFIG_ICON_DESC"
-			label="COM_XPERT_TEXTIMONIALS_FIELD_CONFIG_ICON_LABEL"
+			description="COM_XPERT_TESTIMONIALS_FIELD_CONFIG_ICON_DESC"
+			label="COM_XPERT_TESTIMONIALS_FIELD_CONFIG_ICON_LABEL"
 		/>
 
 		<field
 			name="float_first"
 			type="list"
-			label="COM_XPERT_TEXTIMONIALS_FLOAT_LABEL"
-			description="COM_XPERT_TEXTIMONIALS_FLOAT_DESC">
-				<option value="right">COM_XPERT_TEXTIMONIALS_RIGHT</option>
-				<option value="left">COM_XPERT_TEXTIMONIALS_LEFT</option>
-				<option value="none">COM_XPERT_TEXTIMONIALS_NONE</option>
+			label="COM_XPERT_TESTIMONIALS_FLOAT_LABEL"
+			description="COM_XPERT_TESTIMONIALS_FLOAT_DESC">
+				<option value="right">COM_XPERT_TESTIMONIALS_RIGHT</option>
+				<option value="left">COM_XPERT_TESTIMONIALS_LEFT</option>
+				<option value="none">COM_XPERT_TESTIMONIALS_NONE</option>
 		</field>
 		<field
 			name="float_second"
 			type="list"
-			label="COM_XPERT_TEXTIMONIALS_FLOAT_LABEL"
-			description="COM_XPERT_TEXTIMONIALS_FLOAT_DESC">
-				<option value="right">COM_XPERT_TEXTIMONIALS_RIGHT</option>
-				<option value="left">COM_XPERT_TEXTIMONIALS_LEFT</option>
-				<option value="none">COM_XPERT_TEXTIMONIALS_NONE</option>
+			label="COM_XPERT_TESTIMONIALS_FLOAT_LABEL"
+			description="COM_XPERT_TESTIMONIALS_FLOAT_DESC">
+				<option value="right">COM_XPERT_TESTIMONIALS_RIGHT</option>
+				<option value="left">COM_XPERT_TESTIMONIALS_LEFT</option>
+				<option value="none">COM_XPERT_TESTIMONIALS_NONE</option>
 		</field>
 
 		<field
@@ -86,8 +86,8 @@
 			type="radio"
 			class="btn-group btn-group-yesno"
 			default="1"
-			label="COM_XPERT_TEXTIMONIALS_FIELD_SHOW_TAGS_LABEL"
-			description="COM_XPERT_TEXTIMONIALS_FIELD_SHOW_TAGS_DESC">
+			label="COM_XPERT_TESTIMONIALS_FIELD_SHOW_TAGS_LABEL"
+			description="COM_XPERT_TESTIMONIALS_FIELD_SHOW_TAGS_DESC">
 			<option value="1">JSHOW</option>
 			<option value="0">JHIDE</option>
 		</field>
@@ -96,7 +96,7 @@
 
 	<fieldset name="category"
 		label="JCATEGORY"
-		description="COM_XPERT_TEXTIMONIALS_CATEGORY_DESC"
+		description="COM_XPERT_TESTIMONIALS_CATEGORY_DESC"
 	>
 
 		<field
@@ -155,7 +155,7 @@
 		<field name="show_empty_categories" type="radio"
 				class="btn-group btn-group-yesno"
 				label="JGLOBAL_SHOW_EMPTY_CATEGORIES_LABEL"
-				description="COM_XPERT_TEXTIMONIALS_SHOW_EMPTY_CATEGORIES_DESC"
+				description="COM_XPERT_TESTIMONIALS_SHOW_EMPTY_CATEGORIES_DESC"
 				default="0"
 			>
 				<option value="1">JSHOW</option>
@@ -175,16 +175,16 @@
 		<field name="show_cat_num_links" type="radio"
 			class="btn-group btn-group-yesno"
 			default="1"
-			description="COM_XPERT_TEXTIMONIALS_FIELD_CONFIG_CAT_SHOWNUMBERS_DESC"
-			label="COM_XPERT_TEXTIMONIALS_FIELD_CONFIG_CAT_SHOWNUMBERS_LABEL"
+			description="COM_XPERT_TESTIMONIALS_FIELD_CONFIG_CAT_SHOWNUMBERS_DESC"
+			label="COM_XPERT_TESTIMONIALS_FIELD_CONFIG_CAT_SHOWNUMBERS_LABEL"
 		>
 			<option value="1">JSHOW</option>
 			<option value="0">JHIDE</option>
 		</field>
 
 		<field name="show_cat_tags" type="radio"
-			label="COM_XPERT_TEXTIMONIALS_FIELD_SHOW_CAT_TAGS_LABEL"
-			description="COM_XPERT_TEXTIMONIALS_FIELD_SHOW_CAT_TAGS_DESC"
+			label="COM_XPERT_TESTIMONIALS_FIELD_SHOW_CAT_TAGS_LABEL"
+			description="COM_XPERT_TESTIMONIALS_FIELD_SHOW_CAT_TAGS_DESC"
 			class="btn-group btn-group-yesno"
 			default="1"
 		>
@@ -196,7 +196,7 @@
 
 	<fieldset name="categories"
 		label="JCATEGORIES"
-		description="COM_XPERT_TEXTIMONIALS_CATEGORIES_DESC"
+		description="COM_XPERT_TESTIMONIALS_CATEGORIES_DESC"
 	>
 			<field name="show_base_description" type="radio"
 				class="btn-group btn-group-yesno"
@@ -225,7 +225,7 @@
 				class="btn-group btn-group-yesno"
 				default="0"
 				label="JGLOBAL_SHOW_EMPTY_CATEGORIES_LABEL"
-				description="COM_XPERT_TEXTIMONIALS_SHOW_EMPTY_CATEGORIES_DESC"
+				description="COM_XPERT_TESTIMONIALS_SHOW_EMPTY_CATEGORIES_DESC"
 			>
 				<option value="1">JSHOW</option>
 				<option value="0">JHIDE</option>
@@ -244,8 +244,8 @@
 			<field name="show_cat_num_links_cat" type="radio"
 				class="btn-group btn-group-yesno"
 				default="1"
-				description="COM_XPERT_TEXTIMONIALS_FIELD_CONFIG_CAT_SHOWNUMBERS_DESC"
-				label="COM_XPERT_TEXTIMONIALS_FIELD_CONFIG_CAT_SHOWNUMBERS_LABEL"
+				description="COM_XPERT_TESTIMONIALS_FIELD_CONFIG_CAT_SHOWNUMBERS_DESC"
+				label="COM_XPERT_TESTIMONIALS_FIELD_CONFIG_CAT_SHOWNUMBERS_LABEL"
 			>
 
 				<option value="1">JSHOW</option>
@@ -257,7 +257,7 @@
 
 	<fieldset name="list_layout"
 		label="JGLOBAL_LIST_LAYOUT_OPTIONS"
-		description="COM_XPERT_TEXTIMONIALS_LIST_LAYOUT_DESC"
+		description="COM_XPERT_TESTIMONIALS_LIST_LAYOUT_DESC"
 	>
 
 		<field
@@ -294,8 +294,8 @@
 		<field name="show_link_description" type="radio"
 			default="1"
 			class="btn-group btn-group-yesno"
-			description="COM_XPERT_TEXTIMONIALS_FIELD_CONFIG_LINKDESCRIPTION_DESC"
-			label="COM_XPERT_TEXTIMONIALS_FIELD_CONFIG_LINKDESCRIPTION_LABEL"
+			description="COM_XPERT_TESTIMONIALS_FIELD_CONFIG_LINKDESCRIPTION_DESC"
+			label="COM_XPERT_TESTIMONIALS_FIELD_CONFIG_LINKDESCRIPTION_LABEL"
 		>
 			<option value="1">JSHOW</option>
 			<option value="0">JHIDE</option>
@@ -304,7 +304,7 @@
 		<field name="show_link_hits" type="radio"
 			class="btn-group btn-group-yesno"
 			default="1"
-			description="COM_XPERT_TEXTIMONIALS_FIELD_CONFIG_HITS_DESC"
+			description="COM_XPERT_TESTIMONIALS_FIELD_CONFIG_HITS_DESC"
 			label="JGLOBAL_HITS"
 		>
 			<option value="1">JSHOW</option>
@@ -336,7 +336,7 @@
 	<fieldset
 		name="integration"
 		label="JGLOBAL_INTEGRATION_LABEL"
-		description="COM_XPERT_TEXTIMONIALS_CONFIG_INTEGRATION_SETTINGS_DESC"
+		description="COM_XPERT_TESTIMONIALS_CONFIG_INTEGRATION_SETTINGS_DESC"
 		>
 
 		<field

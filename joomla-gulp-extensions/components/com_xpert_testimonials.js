@@ -163,33 +163,33 @@ gulp.task('watch:' + baseTask,
 
 // watch: com
 gulp.task('watch:' +  baseTask + ':installscript', function() {
-		gulp.watch(extPath + '/script.php', ['copy:' + baseTask + ':installscript']);
+		gulp.watch(extPath + '/script.php', ['copy:' + baseTask + ':installscript', browserSync.reload]);
 });
 gulp.task('watch:' +  baseTask + ':xml', function() {
-		gulp.watch(extPath + '/xpert_testimonials.xml', ['copy:' + baseTask + ':xml']);
+		gulp.watch(extPath + '/xpert_testimonials.xml', ['copy:' + baseTask + ':xml', browserSync.reload]);
 });
 
 // watch: admin component
 gulp.task('watch:' +  baseTask + ':componentsadmin', function() {
-		gulp.watch(extPath + '/admin/**', ['copy:' + baseTask + ':componentsadmin']);
+		gulp.watch(extPath + '/admin/**', ['copy:' + baseTask + ':componentsadmin', browserSync.reload]);
 });
 // Copy: component
 gulp.task('watch:' +  baseTask + ':componentssite', function() {
-	gulp.watch(extPath + '/site/**', ['copy:' + baseTask + ':componentssite']);
+	gulp.watch(extPath + '/site/**', ['copy:' + baseTask + ':componentssite', browserSync.reload]);
 });
 
 // Watch: Languagesadmin
 gulp.task('watch:' + baseTask + ':langadmin', function() {
-	gulp.watch(extPath + '/admin/language/**', ['copy:' + baseTask + ':langadmin']);
+	gulp.watch(extPath + '/admin/language/**', ['copy:' + baseTask + ':langadmin', browserSync.reload]);
 });
 // Watch: Languages site
 gulp.task('watch:' + baseTask + ':langsite', function() {
-	gulp.watch(extPath + '/language/**', ['copy:' + baseTask + ':langsite']);
+	gulp.watch(extPath + '/language/**', ['copy:' + baseTask + ':langsite', browserSync.reload]);
 });
 
 // Watch: media
 gulp.task('watch:' + baseTask + ':media', function() {
-	gulp.watch(mediaPath + '/**', ['copy:' + baseTask + ':media']);
+	gulp.watch(mediaPath + '/**', ['copy:' + baseTask + ':media', browserSync.reload]);
 });
 	// Watch: Styles
 gulp.task('watch:' + baseTask + ':less', function() {

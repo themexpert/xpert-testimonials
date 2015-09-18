@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.6
  */
-class Xpert_TestimonialsModelTestimonials Testimonials extends JModelList
+class Xpert_TestimonialsModelXpert_Testimonials extends JModelList
 {
 	/**
 	 * Constructor.
@@ -31,7 +31,6 @@ class Xpert_TestimonialsModelTestimonials Testimonials extends JModelList
 			$config['filter_fields'] = array(
 				'id', 'a.id',
 				'title', 'a.title',
-				'alias', 'a.alias',
 				'checked_out', 'a.checked_out',
 				'checked_out_time', 'a.checked_out_time',
 				'catid', 'a.catid', 'category_title',
@@ -132,10 +131,10 @@ class Xpert_TestimonialsModelTestimonials Testimonials extends JModelList
 		$query->select(
 			$this->getState(
 				'list.select',
-				'a.id, a.title, a.alias, a.checked_out, a.checked_out_time, a.catid,' .
+				'a.id, a.title, a.checked_out, a.checked_out_time, a.catid,' .
 				'a.hits, a.state, a.access, a.ordering, a.language, a.publish_up, a.publish_down'
 			)
-		);
+		); 
 		$query->from($db->quoteName('#__xpert_testimonials') . ' AS a');
 
 		// Join over the language
@@ -199,7 +198,7 @@ class Xpert_TestimonialsModelTestimonials Testimonials extends JModelList
 			else
 			{
 				$search = $db->quote('%' . str_replace(' ', '%', $db->escape(trim($search), true) . '%'));
-				$query->where('(a.title LIKE ' . $search . ' OR a.alias LIKE ' . $search . ')');
+				$query->where('(a.title LIKE ' . $search . ')');
 			}
 		}
 

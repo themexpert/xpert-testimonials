@@ -15,9 +15,9 @@
 
 			<field name="id" type="category"
 				default="0"
-				description="COM_XPERT_TEXTIMONIALS_FIELD_SELECT_CATEGORY_DESC"
+				description="COM_XPERT_TESTIMONIALS_FIELD_SELECT_CATEGORY_DESC"
 				extension="com_xpert_testimonials"
-				label="COM_XPERT_TEXTIMONIALS_FIELD_SELECT_CATEGORY_LABEL"
+				label="COM_XPERT_TESTIMONIALS_FIELD_SELECT_CATEGORY_LABEL"
 				required="true"
 			/>
 		</fieldset>
@@ -74,7 +74,7 @@
 
 			<field name="show_empty_categories" type="list"
 				label="JGLOBAL_SHOW_EMPTY_CATEGORIES_LABEL"
-				description="COM_XPERT_TEXTIMONIALS_SHOW_EMPTY_CATEGORIES_DESC"
+				description="COM_XPERT_TESTIMONIALS_SHOW_EMPTY_CATEGORIES_DESC"
 			>
 				<option value="">JGLOBAL_USE_GLOBAL</option>
 				<option value="0">JHIDE</option>
@@ -91,8 +91,8 @@
 		</field>
 
 			<field name="show_cat_num_links" type="list"
-			description="COM_XPERT_TEXTIMONIALS_FIELD_CONFIG_CAT_SHOWNUMBERS_DESC"
-			label="COM_XPERT_TEXTIMONIALS_FIELD_CONFIG_CAT_SHOWNUMBERS_LABEL"
+			description="COM_XPERT_TESTIMONIALS_FIELD_CONFIG_CAT_SHOWNUMBERS_DESC"
+			label="COM_XPERT_TESTIMONIALS_FIELD_CONFIG_CAT_SHOWNUMBERS_LABEL"
 		>
 			<option value="">JGLOBAL_USE_GLOBAL</option>
 			<option value="0">JHIDE</option>
@@ -138,8 +138,8 @@
 
 			<field name="show_link_description" type="list"
 
-			description="COM_XPERT_TEXTIMONIALS_FIELD_CONFIG_LINKDESCRIPTION_DESC"
-			label="COM_XPERT_TEXTIMONIALS_FIELD_CONFIG_LINKDESCRIPTION_LABEL"
+			description="COM_XPERT_TESTIMONIALS_FIELD_CONFIG_LINKDESCRIPTION_DESC"
+			label="COM_XPERT_TESTIMONIALS_FIELD_CONFIG_LINKDESCRIPTION_LABEL"
 		>
 			<option value="">JGLOBAL_USE_GLOBAL</option>
 			<option value="0">JHIDE</option>
@@ -148,7 +148,7 @@
 
 		<field name="show_link_hits" type="list"
 
-			description="COM_XPERT_TEXTIMONIALS_FIELD_CONFIG_HITS_DESC"
+			description="COM_XPERT_TESTIMONIALS_FIELD_CONFIG_HITS_DESC"
 			label="JGLOBAL_HITS"
 		>
 			<option value="">JGLOBAL_USE_GLOBAL</option>

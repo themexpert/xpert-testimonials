@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.0
  */
-class Xpert_TestimonialsTableViewCategory extends JViewCategoryfeed
+class Xpert_TestimonialsViewCategory extends JViewCategoryfeed
 {
 	/**
 	 * @var    string  The name of the view to link individual items to

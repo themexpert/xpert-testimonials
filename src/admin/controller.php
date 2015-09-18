@@ -28,9 +28,9 @@ class Xpert_TestimonialsController extends JControllerLegacy
 	 */
 	public function display($cachable = false, $urlparams = false)
 	{
-		require_once JPATH_COMPONENT . '/helpers/testimonials.php';
+		require_once JPATH_COMPONENT . '/helpers/xpert_testimonials.php';
 
-		$view   = $this->input->get('view', 'testimonials');
+		$view   = $this->input->get('view', 'xpert_testimonials');
 		$layout = $this->input->get('layout', 'default');
 		$id     = $this->input->getInt('id');
 
@@ -40,7 +40,7 @@ class Xpert_TestimonialsController extends JControllerLegacy
 			// Somehow the person just went to the form - we don't allow that.
 			$this->setError(JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));
 			$this->setMessage($this->getError(), 'error');
-			$this->setRedirect(JRoute::_('index.php?option=com_xpert_testimonials&view=testimonials', false));
+			$this->setRedirect(JRoute::_('index.php?option=com_xpert_testimonials&view=xpert_testimonials', false));
 
 			return false;
 		}

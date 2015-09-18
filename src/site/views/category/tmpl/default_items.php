@@ -30,7 +30,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 ?>
 
 <?php if (empty($this->items)) : ?>
-	<p> <?php echo JText::_('COM_XPERT_TEXTIMONIALS_NO_TESTIMONIALS'); ?></p>
+	<p> <?php echo JText::_('COM_XPERT_TESTIMONIALS_NO_TESTIMONIALS'); ?></p>
 <?php else : ?>
 
 <form action="<?php echo htmlspecialchars(JUri::getInstance()->toString()); ?>" method="post" name="adminForm" id="adminForm">
@@ -38,8 +38,8 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 	<fieldset class="filters btn-toolbar">
 		<?php if ($this->params->get('filter_field') != 'hide') :?>
 			<div class="btn-group">
-				<label class="filter-search-lbl element-invisible" for="filter-search"><span class="label label-warning"><?php echo JText::_('JUNPUBLISHED'); ?></span><?php echo JText::_('COM_XPERT_TEXTIMONIALS_FILTER_LABEL') . '&#160;'; ?></label>
-				<input type="text" name="filter-search" id="filter-search" value="<?php echo $this->escape($this->state->get('list.filter')); ?>" class="inputbox" onchange="document.adminForm.submit();" title="<?php echo JText::_('COM_XPERT_TEXTIMONIALS_FILTER_SEARCH_DESC'); ?>" placeholder="<?php echo JText::_('COM_XPERT_TEXTIMONIALS_FILTER_SEARCH_DESC'); ?>" />
+				<label class="filter-search-lbl element-invisible" for="filter-search"><span class="label label-warning"><?php echo JText::_('JUNPUBLISHED'); ?></span><?php echo JText::_('COM_XPERT_TESTIMONIALS_FILTER_LABEL') . '&#160;'; ?></label>
+				<input type="text" name="filter-search" id="filter-search" value="<?php echo $this->escape($this->state->get('list.filter')); ?>" class="inputbox" onchange="document.adminForm.submit();" title="<?php echo JText::_('COM_XPERT_TESTIMONIALS_FILTER_SEARCH_DESC'); ?>" placeholder="<?php echo JText::_('COM_XPERT_TESTIMONIALS_FILTER_SEARCH_DESC'); ?>" />
 			</div>
 		<?php endif; ?>
 
@@ -76,12 +76,12 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 
 					<div class="list-title">
 						<?php if ($this->params->get('icons', 1) == 0) : ?>
-							 <?php echo JText::_('COM_XPERT_TEXTIMONIALS_LINK'); ?>
+							 <?php echo JText::_('COM_XPERT_TESTIMONIALS_LINK'); ?>
 						<?php elseif ($this->params->get('icons', 1) == 1) : ?>
 							<?php if (!$this->params->get('link_icons')) : ?>
-								<?php echo JHtml::_('image', 'system/testimonial.png', JText::_('COM_XPERT_TEXTIMONIALS_LINK'), null, true); ?>
+								<?php echo JHtml::_('image', 'system/testimonial.png', JText::_('COM_XPERT_TESTIMONIALS_LINK'), null, true); ?>
 							<?php else: ?>
-								<?php echo '<img src="' . $this->params->get('link_icons') . '" alt="' . JText::_('COM_XPERT_TEXTIMONIALS_LINK') . '" />'; ?>
+								<?php echo '<img src="' . $this->params->get('link_icons') . '" alt="' . JText::_('COM_XPERT_TESTIMONIALS_LINK') . '" />'; ?>
 							<?php endif; ?>
 						<?php endif; ?>
 						<?php

@@ -29,11 +29,11 @@ class JHtmlIcon
 		JHtml::_('bootstrap.tooltip');
 
 		$uri = JUri::getInstance();
-		$url = JRoute::_(Xpert_TestimonialsTableHelperRoute::getFormRoute(0, base64_encode($uri)));
+		$url = JRoute::_(Xpert_TestimonialsHelperRoute::getFormRoute(0, base64_encode($uri)));
 		$text = JHtml::_('image', 'system/new.png', JText::_('JNEW'), null, true);
 		$button = JHtml::_('link', $url, $text);
 
-		return '<span class="hasTooltip" title="' . JHtml::tooltipText('COM_XPERT_TEXTIMONIALS_FORM_CREATE_TESTIMONIAL') . '">' . $button . '</span>';
+		return '<span class="hasTooltip" title="' . JHtml::tooltipText('COM_XPERT_TESTIMONIALS_FORM_CREATE_TESTIMONIAL') . '">' . $button . '</span>';
 	}
 
 	/**
@@ -61,7 +61,7 @@ class JHtmlIcon
 
 		JHtml::_('bootstrap.tooltip');
 
-		$url	= Xpert_TestimonialsTableHelperRoute::getFormRoute($testimonial->id, base64_encode($uri));
+		$url	= Xpert_TestimonialsHelperRoute::getFormRoute($testimonial->id, base64_encode($uri));
 		$icon	= $testimonial->state ? 'edit.png' : 'edit_unpublished.png';
 		$text	= JHtml::_('image', 'system/'.$icon, JText::_('JGLOBAL_EDIT'), null, true);
 
@@ -84,6 +84,6 @@ class JHtmlIcon
 
 		$button = JHtml::_('link', JRoute::_($url), $text);
 
-		return '<span class="hasTooltip" title="' . JHtml::tooltipText('COM_XPERT_TEXTIMONIALS_EDIT') . ' :: ' . $overlib . '">' . $button . '</span>';
+		return '<span class="hasTooltip" title="' . JHtml::tooltipText('COM_XPERT_TESTIMONIALS_EDIT') . ' :: ' . $overlib . '">' . $button . '</span>';
 	}
 }
