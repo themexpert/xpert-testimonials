@@ -34,7 +34,8 @@ $params = $this->state->get('params');
 		<?php echo $this->escape($this->params->get('page_heading')); ?>
 	</h1>
 	<?php endif; ?>
-	<form action="<?php echo JRoute::_('index.php?option=com_xpert_testimonials&view=form&w_id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-validate form-vertical">
+	<form action="<?php echo JRoute::_('index.php?option=com_xpert_testimonials&view=form&w_id='.(int) $this->item->id); ?>"
+		method="post" name="adminForm" id="adminForm" class="form-validate form-horizontal">
 		<div class="btn-toolbar">
 			<div class="btn-group">
 				<button type="button" class="btn btn-primary" onclick="Joomla.submitbutton('testimonial.save')">
@@ -67,6 +68,11 @@ $params = $this->state->get('params');
 		<?php if ($this->user->authorise('core.edit.state', 'com_xpert_testimonials.testimonial')) : ?>
 			<?php echo $this->form->renderField('state'); ?>
 		<?php endif; ?>
+
+		<?php echo $this->form->getControlGroup('images'); ?>
+		<?php foreach ($this->form->getGroup('images') as $field) : ?>
+			<?php echo $field->getControlGroup(); ?>
+		<?php endforeach; ?>
 
 		<?php echo $this->form->renderField('description'); ?>
 

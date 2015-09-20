@@ -31,7 +31,7 @@
 		/>
 
 		<field name="name" type="text"
-			class="input-xxlarge input-large-text"
+			class="input-xlarge input-large-text"
 			size="40" label="COM_XPERT_TESTIMONIALS_FIELD_NAME_LABEL"
 			description="COM_XPERT_TESTIMONIALS_FIELD_NAME_DESC" required="true" />
 
@@ -46,10 +46,23 @@
 			description="COM_XPERT_TESTIMONIALS_FIELD_EMAIL_DESC" required="true" />
 
 		<field name="url" type="url"
-			class="span12"
+			class="input-xlarge form-input"
 			filter="url"
 			size="40" label="COM_XPERT_TESTIMONIALS_FIELD_URL_LABEL"
 			description="COM_XPERT_TESTIMONIALS_FIELD_URL_DESC"/>
+
+			<fields name="images">
+				<fieldset name="images" label="JGLOBAL_FIELDSET_IMAGE_OPTIONS">
+					<field
+						name="author_image" type="file"
+						label="COM_XPERT_TESTIMONIALS_FIELD_AUTHOR_IMAGE_LABEL"
+						description="COM_XPERT_TESTIMONIALS_FIELD_AUTHOR_IMAGE_DESC"
+						size="10"
+						class="input-image testimonial-author-image"
+						accept="image/*" />
+				</fieldset>
+			</fields>
+
 
 		<field name="description" type="editor"
 			buttons="false"
