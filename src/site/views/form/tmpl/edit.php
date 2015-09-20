@@ -35,7 +35,8 @@ $params = $this->state->get('params');
 	</h1>
 	<?php endif; ?>
 	<form action="<?php echo JRoute::_('index.php?option=com_xpert_testimonials&view=form&w_id='.(int) $this->item->id); ?>"
-		method="post" name="adminForm" id="adminForm" class="form-validate form-horizontal">
+		method="post" name="adminForm" id="adminForm" class="form-validate form-horizontal"
+		enctype="multipart/form-data">
 		<div class="btn-toolbar">
 			<div class="btn-group">
 				<button type="button" class="btn btn-primary" onclick="Joomla.submitbutton('testimonial.save')">
