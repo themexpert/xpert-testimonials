@@ -327,7 +327,8 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 	public function uploadImage($files){
 
 		$params = JComponentHelper::getParams('com_media');
-		define('COM_MEDIA_BASE',    JPATH_ROOT . '/' . $params->get('image_path', 'images'));
+		$image_path = $params->get('image_path', 'images');
+		define('COM_MEDIA_BASE',    JPATH_ROOT . '/' . $image_path);
 		$pathFolder = COM_MEDIA_BASE .'/xpert_testimonials';
 		if( !JFolder::exists($pathFolder) )
 		{
@@ -352,6 +353,7 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 			//Set up the source and destination of the file
 			$src = $file['tmp_name'];
 			$dest = $pathFolder . '/' . $filename;
+			$url = $image_path . '/xpert_testimonials/' . $filename;
 
 			//First check if the file has the right extension, we need jpg only
 			if (
@@ -364,7 +366,7 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 				$ext == 'bmp'
 			) {
 			   if ( JFile::upload($src, $dest) ) {
-			      $return[$key] = $dest;
+			      $return[$key] = $url; 
 			   } else {
 						JError::raiseWarning(100, JText::_('COM_XPERT_TESTIMONIALS_ERROR_UNABLE_TO_UPLOAD_FILE'));
 						return false;
