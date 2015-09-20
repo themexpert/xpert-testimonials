@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.6
  */
-class Xpert_TestimonialsControllerXpert_Testimonials Testimonials extends JControllerAdmin
+class Xpert_TestimonialsControllerXpert_Testimonials extends JControllerAdmin
 {
 	/**
 	 * The URL view item variable.

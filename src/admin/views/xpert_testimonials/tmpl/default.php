@@ -46,7 +46,7 @@ JFactory::getDocument()->addScriptDeclaration('
 	};
 ');
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_xpert_testimonials&view=testimonials'); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_xpert_testimonials&view=xpert_testimonials'); ?>" method="post" name="adminForm" id="adminForm">
 <?php if (!empty( $this->sidebar)) : ?>
 	<div id="j-sidebar-container" class="span2">
 		<?php echo $this->sidebar; ?>
@@ -159,11 +159,11 @@ JFactory::getDocument()->addScriptDeclaration('
 							<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 						</td>
 						<td class="center">
-							<?php echo JHtml::_('jgrid.published', $item->state, $i, 'testimonials.', $canChange, 'cb', $item->publish_up, $item->publish_down); ?>
+							<?php echo JHtml::_('jgrid.published', $item->state, $i, 'xpert_testimonials.', $canChange, 'cb', $item->publish_up, $item->publish_down); ?>
 						</td>
 						<td class="nowrap has-context">
 							<?php if ($item->checked_out) : ?>
-								<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'testimonials.', $canCheckin); ?>
+								<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'xpert_testimonials.', $canCheckin); ?>
 							<?php endif; ?>
 							<?php if ($canEdit) : ?>
 								<a href="<?php echo JRoute::_('index.php?option=com_xpert_testimonials&task=testimonial.edit&id='.(int) $item->id); ?>">
