@@ -259,19 +259,34 @@ class Xpert_TestimonialsHelperRouter extends JComponentRouterBase
 /**
  * Xpert Testimonials router functions
  *
+ * @param   array  &$query  An array of URL arguments
+ *
  * These functions are proxys for the new router interface
  * for old SEF extensions.
  *
  * @deprecated  4.0  Use Class based routers instead
+ * @return  array  The URL arguments to use to assemble the subsequent URL.
  */
-function Xpert_TestimonialsHelperBuildRoute(&$query)
+function Xpert_testimonialsHelperBuildRoute(&$query)
 {
 	$router = new Xpert_TestimonialsHelperRouter;
 
 	return $router->build($query);
 }
 
-function Xpert_TestimonialsHelperParseRoute($segments)
+/**
+ * Xpert Testimonials router functions
+ *
+ * @param   array  &$segments  The segments of the URL to parse.
+ *
+ * These functions are proxys for the new router interface
+ * for old SEF extensions.
+ *
+ * @deprecated  4.0  Use Class based routers instead
+ *
+ * @return  array  The URL arguments to use to assemble the subsequent URL.
+ */
+function Xpert_testimonialsHelperParseRoute(&$segments)
 {
 	$router = new Xpert_TestimonialsHelperRouter;
 

@@ -29,12 +29,14 @@ class Xpert_TestimonialsController extends JControllerLegacy
 	 */
 	public function display($cachable = false, $urlparams = false)
 	{
-		$cachable	= true;	// Huh? Why not just put that in the constructor?
+		/* Huh? Why not just put that in the constructor? */
+		$cachable	= true;
 		$user		= JFactory::getUser();
-
-		// Set the default view name and format from the Request.
-		// Note we are using w_id to avoid collisions with the router and the return page.
-		// Frontend is a bit messier than the backend.
+		/*
+		* Set the default view name and format from the Request.
+		* Note we are using w_id to avoid collisions with the router and the return page.
+		* Frontend is a bit messier than the backend.
+		*/
 		$id    = $this->input->getInt('w_id');
 		$vName = $this->input->get('view', 'categories');
 		$this->input->set('view', $vName);
