@@ -56,6 +56,7 @@ $params = $this->state->get('params');
 
 		<hr class="hr-condensed" />
 		<?php echo $this->form->renderField('catid'); ?>
+		<?php echo $this->form->renderField('title'); ?>
 		<?php echo $this->form->renderField('name'); ?>
 		<?php echo $this->form->renderField('designation'); ?>
 		<?php echo $this->form->renderField('email'); ?>

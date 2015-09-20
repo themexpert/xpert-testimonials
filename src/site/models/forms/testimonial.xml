@@ -16,10 +16,11 @@
 			data-typeAlias="com_xpert_testimonials.testimonial"
 			label="JTOOLBAR_VERSIONS" />
 
-		<field name="title" type="hidden"
+		<field name="title" type="text"
 			description="COM_XPERT_TESTIMONIALS_FIELD_TITLE_DESC"
-			label="JGLOBAL_TITLE"
-			required="false"
+			label="COM_XPERT_TESTIMONIALS_FIELD_TITLE_LABEL"
+			class="span12"
+			required="true"
 			size="30"
 		/>
 
@@ -71,6 +72,7 @@
 			filter="safehtml"
 			label="JGLOBAL_DESCRIPTION"
 			asset_id="com_xpert_testimonials"
+			required="true"
 		/>
 
 		<field name="state" type="list"

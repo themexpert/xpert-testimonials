@@ -172,7 +172,7 @@ JFactory::getDocument()->addScriptDeclaration('
 									<?php echo $this->escape($item->title); ?>
 							<?php endif; ?>
 							<span class="small">
-								<?php echo JText::sprintf('JGLOBAL_LIST_ALIAS', $this->escape($item->alias));?>
+								<?php echo JText::sprintf('JGLOBAL_LIST_NAME', $this->escape($item->name));?>
 							</span>
 							<div class="small">
 								<?php echo $this->escape($item->category_title); ?>

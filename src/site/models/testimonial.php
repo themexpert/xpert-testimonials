@@ -106,7 +106,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelItem
 	{
 		return JTable::getInstance($type, $prefix, $config);
 	}
-
+ 
 	/**
 	 * Method to increment the hit counter for the testimonial
 	 *
