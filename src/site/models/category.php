@@ -48,6 +48,7 @@ class Xpert_TestimonialsModelCategory extends JModelList
 			$config['filter_fields'] = array(
 				'id', 'a.id',
 				'title', 'a.title',
+				'name', 'a.name',
 				'hits', 'a.hits',
 				'ordering', 'a.ordering',
 			);

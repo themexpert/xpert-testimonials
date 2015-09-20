@@ -36,13 +36,6 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 <form action="<?php echo htmlspecialchars(JUri::getInstance()->toString()); ?>" method="post" name="adminForm" id="adminForm">
 	<?php if ($this->params->get('filter_field') != 'hide' || $this->params->get('show_pagination_limit')) :?>
 	<fieldset class="filters btn-toolbar">
-		<?php if ($this->params->get('filter_field') != 'hide') :?>
-			<div class="btn-group">
-				<label class="filter-search-lbl element-invisible" for="filter-search"><span class="label label-warning"><?php echo JText::_('JUNPUBLISHED'); ?></span><?php echo JText::_('COM_XPERT_TESTIMONIALS_FILTER_LABEL') . '&#160;'; ?></label>
-				<input type="text" name="filter-search" id="filter-search" value="<?php echo $this->escape($this->state->get('list.filter')); ?>" class="inputbox" onchange="document.adminForm.submit();" title="<?php echo JText::_('COM_XPERT_TESTIMONIALS_FILTER_SEARCH_DESC'); ?>" placeholder="<?php echo JText::_('COM_XPERT_TESTIMONIALS_FILTER_SEARCH_DESC'); ?>" />
-			</div>
-		<?php endif; ?>
-
 		<?php if ($this->params->get('show_pagination_limit')) : ?>
 			<div class="btn-group pull-right">
 				<label for="limit" class="element-invisible">
@@ -62,11 +55,6 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 					<?php else: ?>
 						<li class="cat-list-row<?php echo $i % 2; ?>" >
 					<?php endif; ?>
-					<?php if ($this->params->get('show_link_hits', 1)) : ?>
-						<span class="list-hits badge badge-info pull-right">
-							<?php echo JText::sprintf('JGLOBAL_HITS_COUNT', $item->hits); ?>
-						</span>
-					<?php endif; ?>
 
 					<?php if ($canEdit) : ?>
 						<span class="list-edit pull-left width-50">
@@ -75,58 +63,29 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 					<?php endif; ?>
 
 					<div class="list-title">
-						<?php if ($this->params->get('icons', 1) == 0) : ?>
-							 <?php echo JText::_('COM_XPERT_TESTIMONIALS_LINK'); ?>
-						<?php elseif ($this->params->get('icons', 1) == 1) : ?>
-							<?php if (!$this->params->get('link_icons')) : ?>
-								<?php echo JHtml::_('image', 'system/testimonial.png', JText::_('COM_XPERT_TESTIMONIALS_LINK'), null, true); ?>
-							<?php else: ?>
-								<?php echo '<img src="' . $this->params->get('link_icons') . '" alt="' . JText::_('COM_XPERT_TESTIMONIALS_LINK') . '" />'; ?>
-							<?php endif; ?>
-						<?php endif; ?>
 						<?php
 							// Compute the correct link
 							$menuclass = 'category' . $this->pageclass_sfx;
 							$link = $item->link;
-							$width	= $item->params->get('width');
-							$height	= $item->params->get('height');
-							if ($width == null || $height == null)
-							{
-								$width	= 600;
-								$height	= 500;
-							}
 							if ($this->items[$i]->state == 0) : ?>
 								<span class="label label-warning">Unpublished</span>
 							<?php endif; ?>
 
-							<?php switch ($item->params->get('target', $this->params->get('target')))
-							{
-								case 1:
-									// Open in a new window
-									echo '<a href="' . $link . '" target="_blank" class="' . $menuclass . '" rel="nofollow">' .
-										$this->escape($item->title) . '</a>';
-									break;
+							<h3 class="title testimonial-title">
+								<?php echo $item->name; ?> <small><?php echo $item->designation; ?></small>
+							</h3>
 
-								case 2:
-									// Open in a popup window
-									$attribs = 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=' . $this->escape($width) . ',height=' . $this->escape($height) . '';
-									echo "<a href=\"$link\" onclick=\"window.open(this.href, 'targetWindow', '" . $attribs . "'); return false;\">" .
-										$this->escape($item->title) . '</a>';
-									break;
-								case 3:
-									// Open in a modal window
-									JHtml::_('behavior.modal', 'a.modal');
-									echo '<a class="modal" href="' . $link . '"  rel="{handler: \'iframe\', size: {x:' . $this->escape($width) . ', y:' . $this->escape($height) . '}}">' .
-										$this->escape($item->title) . ' </a>';
-									break;
+							<p>
+								<?php if(!empty($item->email)): ?>
+									<span class="label label-info"><?php echo $item->email; ?></span>
+								<?php endif; ?>
+								<?php if(!empty($item->url)): ?>
+									<a class="label label-warning" href="<?php echo $item->url; ?>" rel="nofollow" target="_blank">
+										<?php echo $item->url; ?>
+									</a>
+								<?php endif; ?>
+							</p>
 
-								default:
-									// Open in parent window
-									echo '<a href="' . $link . '" class="' . $menuclass . '" rel="nofollow">' .
-										$this->escape($item->title) . ' </a>';
-									break;
-							}
-						?>
 						</div>
 						<?php $tagsData = $item->tags->getItemTags('com_xpert_testimonials.testimonial', $item->id); ?>
 						<?php if ($this->params->get('show_tags', 1)) : ?>
@@ -136,13 +95,13 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 
 						<?php if (($this->params->get('show_link_description')) and ($item->description != '')) : ?>
 						<?php $images = json_decode($item->images); ?>
-						<?php  if (isset($images->image_first) and !empty($images->image_first)) : ?>
-						<?php $imgfloat = (empty($images->float_first)) ? $this->params->get('float_first') : $images->float_first; ?>
+						<?php  if (isset($images->author_image) and !empty($images->author_image)) : ?>
+						<?php $imgfloat = (empty($images->float_author_image)) ? $this->params->get('float_author_image') : $images->float_author_image; ?>
 						<div class="img-intro-<?php echo htmlspecialchars($imgfloat); ?>"> <img
-							<?php if ($images->image_first_caption):
-								echo 'class="caption"'.' title="' .htmlspecialchars($images->image_first_caption) .'"';
+							<?php if ($images->author_image_caption):
+								echo 'class="caption"'.' title="' .htmlspecialchars($images->author_image_caption) .'"';
 							endif; ?>
-							src="<?php echo htmlspecialchars($images->image_first); ?>" alt="<?php echo htmlspecialchars($images->image_first_alt); ?>"/> </div>
+							src="<?php echo htmlspecialchars($images->author_image); ?>" alt="<?php echo htmlspecialchars($images->author_image_alt); ?>"/> </div>
 						<?php endif; ?>
 						<?php  if (isset($images->image_second) and !empty($images->image_second)) : ?>
 						<?php $imgfloat = (empty($images->float_second)) ? $this->params->get('float_second') : $images->float_second; ?>
@@ -152,8 +111,9 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 						endif; ?>
 						src="<?php echo htmlspecialchars($images->image_second); ?>" alt="<?php echo htmlspecialchars($images->image_second_alt); ?>"/> </div>
 						<?php endif; ?>
-
-						<?php echo $item->description; ?>
+						<p class="description">
+							<?php echo $item->description; ?>
+						</p>
 						<?php endif; ?>
 
 						</li>

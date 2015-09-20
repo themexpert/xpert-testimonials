@@ -165,7 +165,7 @@
 				label="COM_XPERT_TESTIMONIALS_FIELD_AUTHOR_IMAGE_LABEL"
 				description="COM_XPERT_TESTIMONIALS_FIELD_AUTHOR_IMAGE_DESC" />
 			<field
-				name="float_first"
+				name="float_author_image"
 				type="list"
 				label="COM_XPERT_TESTIMONIALS_FLOAT_LABEL"
 				description="COM_XPERT_TESTIMONIALS_FLOAT_DESC">
