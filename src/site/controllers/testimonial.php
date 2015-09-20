@@ -9,7 +9,11 @@
 
 defined('_JEXEC') or die;
 
+jimport('joomla.filesystem.file');
+jimport('joomla.filesystem.folder');
+
 use Joomla\Utilities\ArrayHelper;
+use Joomla\Registry\Registry;
 
 /**
  * Xpert Testimonials class.
@@ -18,6 +22,14 @@ use Joomla\Utilities\ArrayHelper;
  */
 class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 {
+	/**
+	 * The uploadedfile
+	 *
+	 * @var    string
+	 * @since  1.6
+	 */
+	protected $uploadedfile;
+
 	/**
 	 * The URL view item variable.
 	 *
@@ -227,14 +239,143 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 	 */
 	public function save($key = null, $urlVar = 'w_id')
 	{
-		$result = parent::save($key, $urlVar);
+		$app	= JFactory::getApplication();
+		$model	= $this->getModel('Form', 'Xpert_TestimonialsModel');
 
-		// If ok, redirect to the return page.
-		if ($result)
+		// Get the user data.
+		$data = $app->input->post->get('jform', array(), 'array');
+
+		// Validate the posted data.
+		$form = $model->getForm();
+
+		if (!$form)
 		{
-			$this->setRedirect($this->getReturnPage());
+			JError::raiseError(500, $model->getError());
+
+			return false;
+		}
+
+		// Validate the posted data.
+		$data = $model->validate($form, $data);
+
+
+		// Check for errors.
+		if ($data === false)
+		{
+			// Get the validation messages.
+			$errors	= $model->getErrors();
+
+			// Push up to three validation messages out to the user.
+			for ($i = 0, $n = count($errors); $i < $n && $i < 3; $i++)
+			{
+				if ($errors[$i] instanceof Exception)
+				{
+					$app->enqueueMessage($errors[$i]->getMessage(), 'warning');
+				}
+				else
+				{
+					$app->enqueueMessage($errors[$i], 'warning');
+				}
+			}
+
+			$data = $app->input->post->get('jform', array(), 'array');
+
+			// Save the data in the session.
+			$app->setUserState('com_xpert_testimonials.edit.testimonial.data', $data);
+			$this->setRedirect(JRoute::_('index.php?option=com_xpert_testimonials&view=form&layout=edit', false));
+
+			return false;
+
+		}
+
+		$files  = $app->input->files->get('jform', '', 'array');
+		if (isset($files['images']) && is_array($files['images']))
+		{
+			$uploadedfile = $this->uploadImage($files['images']);
+			if(false != $uploadedfile){
+				$registry = new Registry;
+				$registry->loadArray($uploadedfile);
+				$data['images'] = (string) $registry;
+			}
+		}
+		// print_r($data);die;
+		// Attempt to save the data.
+		$return	= $model->save($data);
+		// $return = false;
+		// Check for errors.
+		if ($return === false)
+		{
+			$app->setUserState('com_xpert_testimonials.edit.testimonial.data', $data);
+			$this->setRedirect(JRoute::_('index.php?option=com_xpert_testimonials&view=form&layout=edit', false));
+			return false;
+		}else{
+			$app->setUserState('com_xpert_testimonials.edit.testimonial.data', '');
+			$this->setRedirect($this->getReturnPage(),JText::_('COM_XPERT_TESTIMONIALS_SUBMIT_SAVE_SUCCESS'));
 		}
 
 		return $result;
+	}
+
+	/**
+	 * Upload one or more files
+	 *
+	 * @return  boolean
+	 *
+	 * @since   1.5
+	 */
+
+	public function uploadImage($files){
+
+		$params = JComponentHelper::getParams('com_media');
+		define('COM_MEDIA_BASE',    JPATH_ROOT . '/' . $params->get('image_path', 'images'));
+		$pathFolder = COM_MEDIA_BASE .'/xpert_testimonials';
+		if( !JFolder::exists($pathFolder) )
+		{
+				try{
+						JFolder::create($pathFolder);
+				}
+				catch (Exception $e)
+				{
+						echo JText::sprintf('COM_XPERT_TESTIMONIALS_ERROR_CREATE_FOLDER', $e->getCode(), $e->getMessage()) . '<br />';
+						return false;
+				}
+		}
+		$return = array();
+		// Perform basic checks on file info before attempting anything
+		foreach ($files as $key=>$file)
+		{
+			//Clean up filename to get rid of strange characters like spaces etc
+			$filename = JFile::makeSafe($file['name']);
+			$ext = strtolower(JFile::getExt($filename));
+			$filename = md5($filename.time()).'.'.$ext;
+
+			//Set up the source and destination of the file
+			$src = $file['tmp_name'];
+			$dest = $pathFolder . '/' . $filename;
+
+			//First check if the file has the right extension, we need jpg only
+			if (
+				$ext == 'jpg'
+				or
+				$ext == 'png'
+				or
+				$ext == 'jpeg'
+				or
+				$ext == 'bmp'
+			) {
+			   if ( JFile::upload($src, $dest) ) {
+			      $return[$key] = $dest;
+			   } else {
+						JError::raiseWarning(100, JText::_('COM_XPERT_TESTIMONIALS_ERROR_UNABLE_TO_UPLOAD_FILE'));
+						return false;
+			   }
+			} else {
+		   	JError::raiseWarning(100, JText::_('COM_XPERT_TESTIMONIALS_ERROR_UNABLE_TO_UPLOAD_FILE'));
+				return false;
+			}
+
+		}
+
+		return $return;
 	}
 }
