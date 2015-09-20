@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
 	<fieldset addfieldpath="/administrator/components/com_categories/models/fields">
-		<field name="id" type="hidden"
+		
+		<field
+			id="id"
+			name="id"
+			type="hidden"
+			class="inputbox"
 			label="TESTIMONIAL_ID_LABEL"
-			readonly="true"
-			required="true"
 			size="10"
 			default="0"
-		/>
+			readonly="true" />
 
 		<field
 			id="contenthistory"

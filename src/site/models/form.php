@@ -86,7 +86,29 @@ class Xpert_TestimonialsModelForm extends Xpert_TestimonialsModelTestimonial
 	{
 		// Check the session for previously entered form data.
 		$data = JFactory::getApplication()->getUserState('com_xpert_testimonials.edit.testimonial.data', array());
+
 		return $data;
+	}
+
+	/**
+	 * Method to save the form data.
+	 *
+	 * @param   array  $data  The form data.
+	 *
+	 * @return  boolean  True on success.
+	 *
+	 * @since	3.1
+	 */
+	public function save($data)
+	{
+		
+		if(parent::save($data))
+		{
+			return true;
+		}
+
+		return false;
+
 	}
 
 }
