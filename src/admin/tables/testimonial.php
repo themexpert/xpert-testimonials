@@ -130,7 +130,7 @@ class Xpert_TestimonialsHelperTestimonial extends JTable
 		// 	$this->setError(JText::_('COM_XPERT_TESTIMONIALS_ERR_TABLES_TITLE'));
 		// 	return false;
 		// }
-
+		// echo 4;die;
 		// Check for existing name
 		$db = $this->getDbo();
 
@@ -145,9 +145,12 @@ class Xpert_TestimonialsHelperTestimonial extends JTable
 
 		if ($xid && $xid != (int) $this->id)
 		{
-			$this->setError(JText::_('COM_XPERT_TESTIMONIALS_ERR_TABLES_NAME'));
+			// $this->setError(JText::_('COM_XPERT_TESTIMONIALS_ERR_TABLES_NAME'));
+			list($title, $alias) = $this->generateNewTitle($this->catid, $this->alias, $this->title);
+			$this->title = $title;
+			$this->alias = $alias;
 
-			return false;
+			// return false;
 		}
 
 		if (empty($this->alias))
@@ -196,5 +199,34 @@ class Xpert_TestimonialsHelperTestimonial extends JTable
 		}
 
 		return true;
+	}
+
+	/**
+	 * Method to change the title & alias.
+	 *
+	 * @param   integer  $category_id  The id of the parent.
+	 * @param   string   $alias        The alias.
+	 * @param   string   $name         The title.
+	 *
+	 * @return  array  Contains the modified title and alias.
+	 *
+	 * @since   3.1
+	 */
+	protected function generateNewTitle($category_id, $alias, $name)
+	{
+		// Verify that the alias is unique
+		$table = JTable::getInstance('Testimonial', 'Xpert_TestimonialsHelper');
+
+		while ($table->load(array('alias' => $alias, 'catid' => $category_id)))
+		{
+			if ($name == $table->title)
+			{
+				$name = String::increment($name);
+			}
+
+			$alias = String::increment($alias, 'dash');
+		}
+
+		return array($name, $alias);
 	}
 }

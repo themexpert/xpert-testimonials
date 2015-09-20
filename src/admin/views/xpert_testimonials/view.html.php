@@ -77,22 +77,22 @@ class Xpert_TestimonialsViewXpert_Testimonials extends JViewLegacy
 
 		if ($canDo->get('core.edit.state'))
 		{
-			JToolbarHelper::publish('testimonials.publish', 'JTOOLBAR_PUBLISH', true);
-			JToolbarHelper::unpublish('testimonials.unpublish', 'JTOOLBAR_UNPUBLISH', true);
+			JToolbarHelper::publish('xpert_testimonials.publish', 'JTOOLBAR_PUBLISH', true);
+			JToolbarHelper::unpublish('xpert_testimonials.unpublish', 'JTOOLBAR_UNPUBLISH', true);
 
-			JToolbarHelper::archiveList('testimonials.archive');
-			JToolbarHelper::checkin('testimonials.checkin');
+			JToolbarHelper::archiveList('xpert_testimonials.archive');
+			JToolbarHelper::checkin('xpert_testimonials.checkin');
 		}
 
 		if ($state->get('filter.state') == -2 && $canDo->get('core.delete'))
 		{
-			JToolbarHelper::deleteList('', 'testimonials.delete', 'JTOOLBAR_EMPTY_TRASH');
+			JToolbarHelper::deleteList('', 'xpert_testimonials.delete', 'JTOOLBAR_EMPTY_TRASH');
 		}
 		elseif ($canDo->get('core.edit.state'))
 		{
-			JToolbarHelper::trash('testimonials.trash');
+			JToolbarHelper::trash('xpert_testimonials.trash');
 		}
-
+ 
 		// Add a batch button
 		if ($user->authorise('core.create', 'com_xpert_testimonials') && $user->authorise('core.edit', 'com_xpert_testimonials')
 			&& $user->authorise('core.edit.state', 'com_xpert_testimonials'))
@@ -114,7 +114,7 @@ class Xpert_TestimonialsViewXpert_Testimonials extends JViewLegacy
 
 		JToolbarHelper::help('JHELP_COMPONENTS_TESTIMONIALS_LINKS');
 
-		JHtmlSidebar::setAction('index.php?option=com_xpert_testimonials&view=testimonials');
+		JHtmlSidebar::setAction('index.php?option=com_xpert_testimonials&view=xpert_testimonials');
 
 		JHtmlSidebar::addFilter(
 			JText::_('JOPTION_SELECT_PUBLISHED'),

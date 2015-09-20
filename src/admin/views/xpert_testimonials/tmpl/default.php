@@ -23,7 +23,7 @@ $canOrder	= $user->authorise('core.edit.state', 'com_xpert_testimonials.category
 $saveOrder	= $listOrder == 'a.ordering';
 if ($saveOrder)
 {
-	$saveOrderingUrl = 'index.php?option=com_xpert_testimonials&task=testimonials.saveOrderAjax&tmpl=component';
+	$saveOrderingUrl = 'index.php?option=com_xpert_testimonials&task=xpert_testimonials.saveOrderAjax&tmpl=component';
 	JHtml::_('sortablelist.sortable', 'testimonialList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
 }
 $sortFields = $this->getSortFields();
