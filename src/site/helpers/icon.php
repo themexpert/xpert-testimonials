@@ -29,7 +29,7 @@ class JHtmlIcon
 		JHtml::_('bootstrap.tooltip');
 
 		$uri = JUri::getInstance();
-		$url = JRoute::_(Xpert_TestimonialsHelperRoute::getFormRoute(0, base64_encode($uri)));
+		$url = JRoute::_(Xpert_TestimonialsRoute::getFormRoute(0, base64_encode($uri)));
 		$text = JHtml::_('image', 'system/new.png', JText::_('JNEW'), null, true);
 		$button = JHtml::_('link', $url, $text);
 
@@ -61,7 +61,7 @@ class JHtmlIcon
 
 		JHtml::_('bootstrap.tooltip');
 
-		$url	= Xpert_TestimonialsHelperRoute::getFormRoute($testimonial->id, base64_encode($uri));
+		$url	= Xpert_TestimonialsRoute::getFormRoute($testimonial->id, base64_encode($uri));
 		$icon	= $testimonial->state ? 'edit.png' : 'edit_unpublished.png';
 		$text	= JHtml::_('image', 'system/'.$icon, JText::_('JGLOBAL_EDIT'), null, true);
 

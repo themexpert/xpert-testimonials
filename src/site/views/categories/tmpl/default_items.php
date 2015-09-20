@@ -26,7 +26,7 @@ if (count($this->items[$this->parent->id]) > 0 && $this->maxLevelcat != 0) :
 		<div <?php echo $class; ?> >
 		<?php $class = ''; ?>
 			<h3 class="page-header item-title">
-				<a href="<?php echo JRoute::_(Xpert_TestimonialsHelperRoute::getCategoryRoute($item->id));?>">
+				<a href="<?php echo JRoute::_(Xpert_TestimonialsRoute::getCategoryRoute($item->id));?>">
 					<?php echo $this->escape($item->title); ?></a>
 					<?php if ($this->params->get('show_cat_num_links_cat') == 1) :?>
 						<span class="badge badge-info tip hasTooltip" title="<?php echo JHtml::tooltipText('COM_XPERT_TESTIMONIALS_NUM_ITEMS'); ?>">

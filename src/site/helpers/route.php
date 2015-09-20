@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.5
  */
-abstract class Xpert_TestimonialsHelperRoute
+abstract class Xpert_TestimonialsRoute
 {
 	protected static $lookup;
 
@@ -36,7 +36,7 @@ abstract class Xpert_TestimonialsHelperRoute
 
 		if ($catid > 1)
 		{
-			$categories = JCategories::getInstance('Xpert_TestimonialsHelper');
+			$categories = JCategories::getInstance('Xpert_Testimonials');
 			$category = $categories->get($catid);
 
 			if ($category)
@@ -108,7 +108,7 @@ abstract class Xpert_TestimonialsHelperRoute
 		else
 		{
 			$id = (int) $catid;
-			$category = JCategories::getInstance('Xpert_TestimonialsHelper')->get($id);
+			$category = JCategories::getInstance('Xpert_Testimonials')->get($id);
 		}
 
 		if ($id < 1 || !($category instanceof JCategoryNode))

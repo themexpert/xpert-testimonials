@@ -64,7 +64,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelItem
 			}
 
 			// Get a level row instance.
-			$table = JTable::getInstance('Testimonial', 'Xpert_TestimonialsHelper');
+			$table = JTable::getInstance('Testimonial', 'Xpert_Testimonials');
 
 			// Attempt to load the row.
 			if ($table->load($id))
@@ -102,7 +102,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelItem
 	 *
 	 * @since	1.6
 	 */
-	public function getTable($type = 'Testimonial', $prefix = 'Xpert_TestimonialsHelper', $config = array())
+	public function getTable($type = 'Testimonial', $prefix = 'Xpert_Testimonials', $config = array())
 	{
 		return JTable::getInstance($type, $prefix, $config);
 	}
@@ -121,7 +121,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelItem
 			$id = $this->getState('testimonial.id');
 		}
 
-		$testimonial = $this->getTable('Testimonial', 'Xpert_TestimonialsHelper');
+		$testimonial = $this->getTable('Testimonial', 'Xpert_Testimonials');
 
 		return $testimonial->hit($id);
 	}

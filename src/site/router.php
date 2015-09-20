@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  3.3
  */
-class Xpert_TestimonialsHelperRouter extends JComponentRouterBase
+class Xpert_TestimonialsRouter extends JComponentRouterBase
 {
 	/**
 	 * Build the route for the com_xpert_testimonials component
@@ -88,7 +88,7 @@ class Xpert_TestimonialsHelperRouter extends JComponentRouterBase
 				}
 
 				$menuCatid = $mId;
-				$categories = JCategories::getInstance('Xpert_TestimonialsHelper');
+				$categories = JCategories::getInstance('Xpert_Testimonials');
 				$category = $categories->get($catid);
 
 				if ($category)
@@ -205,7 +205,7 @@ class Xpert_TestimonialsHelperRouter extends JComponentRouterBase
 		// From the categories view, we can only jump to a category.
 		$id = (isset($item->query['id']) && $item->query['id'] > 1) ? $item->query['id'] : 'root';
 
-		$category = JCategories::getInstance('Xpert_TestimonialsHelper')->get($id);
+		$category = JCategories::getInstance('Xpert_Testimonials')->get($id);
 
 		$categories = $category->getChildren();
 		$found = 0;
@@ -267,9 +267,9 @@ class Xpert_TestimonialsHelperRouter extends JComponentRouterBase
  * @deprecated  4.0  Use Class based routers instead
  * @return  array  The URL arguments to use to assemble the subsequent URL.
  */
-function Xpert_testimonialsHelperBuildRoute(&$query)
+function Xpert_testimonialsBuildRoute(&$query)
 {
-	$router = new Xpert_TestimonialsHelperRouter;
+	$router = new Xpert_TestimonialsRouter;
 
 	return $router->build($query);
 }
@@ -286,9 +286,9 @@ function Xpert_testimonialsHelperBuildRoute(&$query)
  *
  * @return  array  The URL arguments to use to assemble the subsequent URL.
  */
-function Xpert_testimonialsHelperParseRoute(&$segments)
+function Xpert_testimonialsParseRoute(&$segments)
 {
-	$router = new Xpert_TestimonialsHelperRouter;
+	$router = new Xpert_TestimonialsRouter;
 
 	return $router->parse($segments);
 }

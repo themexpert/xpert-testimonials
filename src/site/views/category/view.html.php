@@ -88,7 +88,7 @@ class Xpert_TestimonialsViewCategory extends JViewCategory
 
 			while (($menu->query['option'] != 'com_xpert_testimonials' || $id != $category->id) && $category->id > 1)
 			{
-				$path[] = array('title' => $category->title, 'link' => Xpert_TestimonialsHelperRoute::getCategoryRoute($category->id));
+				$path[] = array('title' => $category->title, 'link' => Xpert_TestimonialsRoute::getCategoryRoute($category->id));
 				$category = $category->getParent();
 			}
 
