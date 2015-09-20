@@ -54,11 +54,11 @@ $params = $this->state->get('params');
 		</div>
 
 		<hr class="hr-condensed" />
-		<?php echo $this->form->renderField('title'); ?>
-		<?php echo $this->form->renderField('alias'); ?>
 		<?php echo $this->form->renderField('catid'); ?>
+		<?php echo $this->form->renderField('name'); ?>
+		<?php echo $this->form->renderField('designation'); ?>
+		<?php echo $this->form->renderField('email'); ?>
 		<?php echo $this->form->renderField('url'); ?>
-		<?php echo $this->form->renderField('tags'); ?>
 
 		<?php if ($params->get('save_history', 0)) : ?>
 			<?php echo $this->form->renderField('version_note'); ?>
@@ -67,7 +67,7 @@ $params = $this->state->get('params');
 		<?php if ($this->user->authorise('core.edit.state', 'com_xpert_testimonials.testimonial')) : ?>
 			<?php echo $this->form->renderField('state'); ?>
 		<?php endif; ?>
-		<?php echo $this->form->renderField('language'); ?>
+
 		<?php echo $this->form->renderField('description'); ?>
 
 		<input type="hidden" name="return" value="<?php echo $this->return_page;?>" />

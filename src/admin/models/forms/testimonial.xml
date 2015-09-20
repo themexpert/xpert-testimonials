@@ -41,7 +41,7 @@
 			class="span12"
 			filter="url"
 			size="40" label="COM_XPERT_TESTIMONIALS_FIELD_URL_LABEL"
-			description="COM_XPERT_TESTIMONIALS_FIELD_URL_DESC" required="true" />
+			description="COM_XPERT_TESTIMONIALS_FIELD_URL_DESC"/>
 
 		<field name="description" type="editor" buttons="false" editor="codemirror"
 			filter="JComponentHelper::filterText"

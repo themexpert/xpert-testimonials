@@ -16,23 +16,44 @@
 			data-typeAlias="com_xpert_testimonials.testimonial"
 			label="JTOOLBAR_VERSIONS" />
 
-		<field name="title" type="text"
+		<field name="title" type="hidden"
 			description="COM_XPERT_TESTIMONIALS_FIELD_TITLE_DESC"
 			label="JGLOBAL_TITLE"
-			required="true"
+			required="false"
 			size="30"
 		/>
 
-		<field name="alias" type="text"
+		<field name="alias" type="hidden"
 			description="COM_XPERT_TESTIMONIALS_FIELD_ALIAS_DESC"
 			label="JFIELD_ALIAS_LABEL"
 			hint="JFIELD_ALIAS_PLACEHOLDER"
 			size="45"
 		/>
 
+		<field name="name" type="text"
+			class="input-xxlarge input-large-text"
+			size="40" label="COM_XPERT_TESTIMONIALS_FIELD_NAME_LABEL"
+			description="COM_XPERT_TESTIMONIALS_FIELD_NAME_DESC" required="true" />
+
+		<field name="designation" type="text"
+			class="input-xlarge"
+			size="40" label="COM_XPERT_TESTIMONIALS_FIELD_DESIGNATION_LABEL"
+			description="COM_XPERT_TESTIMONIALS_FIELD_DESIGNATION_DESC" required="true" />
+
+		<field name="email" type="text"
+			class="input-xlarge"
+			size="40" label="COM_XPERT_TESTIMONIALS_FIELD_EMAIL_LABEL"
+			description="COM_XPERT_TESTIMONIALS_FIELD_EMAIL_DESC" required="true" />
+
+		<field name="url" type="url"
+			class="span12"
+			filter="url"
+			size="40" label="COM_XPERT_TESTIMONIALS_FIELD_URL_LABEL"
+			description="COM_XPERT_TESTIMONIALS_FIELD_URL_DESC"/>
+
 		<field name="description" type="editor"
-			buttons="true"
-			hide="pagebreak,readmore"
+			buttons="false"
+			editor="codemirror"
 			description="COM_XPERT_TESTIMONIALS_FIELD_DESCRIPTION_DESC"
 			filter="safehtml"
 			label="JGLOBAL_DESCRIPTION"
@@ -60,25 +81,8 @@
 			filter="url"
 			description="COM_XPERT_TESTIMONIALS_FIELD_URL_DESC"
 			label="COM_XPERT_TESTIMONIALS_FIELD_URL_LABEL"
-			required="true"
 			size="45"
 		/>
-
-		<field
-			name="language"
-			type="contentlanguage"
-			label="JFIELD_LANGUAGE_LABEL"
-			description="JFIELD_LANGUAGE_DESC"
-			class="inputbox">
-			<option value="*">JALL</option>
-		</field>
-
-		<field name="tags"
-			type="tag"
-			label="JTAG"
-			description="JTAG_DESC"
-			class="inputbox"
-			multiple="true" />
 
 		<field
 			name="version_note"

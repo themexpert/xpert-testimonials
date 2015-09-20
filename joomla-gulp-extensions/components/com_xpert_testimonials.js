@@ -52,7 +52,7 @@ gulp.task('clean:' + baseTask + ':componentssite', function() {
 });
 // Clean: site languages
 gulp.task('clean:' + baseTask + ':langsite', function() {
-	return gulp.src(config.wwwDir + '/language/**/*.com_xpert_testimonials.*')
+	return gulp.src(config.wwwDir + '/site/language/**/*.com_xpert_testimonials.*')
 		.pipe(rm({ force: true }));
 });
 // Clean: admin languages
@@ -184,7 +184,7 @@ gulp.task('watch:' + baseTask + ':langadmin', function() {
 });
 // Watch: Languages site
 gulp.task('watch:' + baseTask + ':langsite', function() {
-	gulp.watch(extPath + '/language/**', ['copy:' + baseTask + ':langsite', browserSync.reload]);
+	gulp.watch(extPath + '/site/language/**', ['copy:' + baseTask + ':langsite', browserSync.reload]);
 });
 
 // Watch: media

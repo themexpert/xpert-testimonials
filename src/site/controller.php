@@ -16,7 +16,7 @@ defined('_JEXEC') or die;
  */
 class Xpert_TestimonialsController extends JControllerLegacy
 {
-	/**
+	/** 
 	 * Method to display a view.
 	 *
 	 * @param   boolean  $cachable   If true, the view output will be cached
