@@ -74,4 +74,19 @@ class Xpert_TestimonialsModelForm extends Xpert_TestimonialsModelTestimonial
 
 		$this->setState('layout', $app->input->getString('layout'));
 	}
+
+	/**
+	 * Method to get the data that should be injected in the form.
+	 *
+	 * @return  array  The default data is an empty array.
+	 *
+	 * @since   1.0.0
+	 */
+	protected function loadFormData()
+	{
+		// Check the session for previously entered form data.
+		$data = JFactory::getApplication()->getUserState('com_xpert_testimonials.edit.testimonial.data', array());
+		return $data;
+	}
+
 }

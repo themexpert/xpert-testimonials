@@ -49,8 +49,7 @@ class Xpert_TestimonialsViewForm extends JViewLegacy
 
 			return false;
 		}
-
-		if (!empty($this->item))
+		if (!empty($this->item->id))
 		{
 			$this->form->bind($this->item);
 		}
