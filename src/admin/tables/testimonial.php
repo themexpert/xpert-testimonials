@@ -124,12 +124,12 @@ class Xpert_TestimonialsHelperTestimonial extends JTable
 			return false;
 		}
 
-		// check for valid name
-		if (trim($this->title) == '')
-		{
-			$this->setError(JText::_('COM_XPERT_TESTIMONIALS_ERR_TABLES_TITLE'));
-			return false;
-		}
+		// // check for valid name
+		// if (trim($this->title) == '')
+		// {
+		// 	$this->setError(JText::_('COM_XPERT_TESTIMONIALS_ERR_TABLES_TITLE'));
+		// 	return false;
+		// }
 
 		// Check for existing name
 		$db = $this->getDbo();
