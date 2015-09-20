@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS `#__xpert_testimonials` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `catid` int(11) NOT NULL DEFAULT 0,
   `title` varchar(250) NOT NULL DEFAULT '',
+  `alias` varchar(250) NOT NULL DEFAULT '',
   `name` varchar(250) NOT NULL DEFAULT '',
   `designation` varchar(250) NOT NULL DEFAULT '',
   `images` text NOT NULL,

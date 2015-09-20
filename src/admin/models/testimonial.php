@@ -191,10 +191,6 @@ class Xpert_TestimonialsModelTestimonial extends JModelAdmin
 	{
 		if ($item = parent::getItem($pk))
 		{
-			// Convert the metadata field to an array.
-			$registry = new Registry;
-			$registry->loadString($item->metadata);
-			$item->metadata = $registry->toArray();
 
 			// Convert the images field to an array.
 			$registry = new Registry;

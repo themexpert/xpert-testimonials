@@ -39,6 +39,9 @@ JFactory::getDocument()->addScriptDeclaration("
 		<div class="row-fluid">
 			<div class="span9">
 				<div class="form-vertical">
+					<?php echo $this->form->getControlGroup('name'); ?>
+					<?php echo $this->form->getControlGroup('designation'); ?>
+					<?php echo $this->form->getControlGroup('email'); ?>
 					<?php echo $this->form->getControlGroup('url'); ?>
 					<?php echo $this->form->getControlGroup('description'); ?>
 				</div>
