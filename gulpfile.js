@@ -19,6 +19,6 @@ gulp.task('release', function () {
 		'!*',
 		'./src/**',
 	])
-	.pipe(zip(extension.name + '-' + extension.version + '.zip'))
+	.pipe(zip(extension.name + '_' + extension.version + '.zip'))
 	.pipe(gulp.dest('releases'));
 });
