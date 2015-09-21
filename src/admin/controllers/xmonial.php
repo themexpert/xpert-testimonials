@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.6
  */
-class Xpert_TestimonialsControllerTestimonial extends JControllerForm
+class XmonialsControllerXmonial extends JControllerForm
 {
 	/**
 	 * The URL view item variable.
@@ -22,7 +22,7 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 	 * @var    string
 	 * @since  12.2
 	 */
-	protected $view_item = 'testimonial';
+	protected $view_item = 'xmonial';
 
 	/**
 	 * The URL view list variable.
@@ -30,7 +30,7 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 	 * @var    string
 	 * @since  12.2
 	 */
-	protected $view_list = 'xpert_testimonials';
+	protected $view_list = 'xmonials';
 
 	/**
 	 * Method override to check if you can add a new record.
@@ -106,10 +106,10 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
 
 		// Set the model
-		$model = $this->getModel('Testimonial', '', array());
+		$model = $this->getModel('Xmonial', '', array());
 
 		// Preset the redirect
-		$this->setRedirect(JRoute::_('index.php?option=com_xpert_testimonials&view=xpert_testimonials' . $this->getRedirectToListAppend(), false));
+		$this->setRedirect(JRoute::_('index.php?option=com_xmonials&view=xmonials' . $this->getRedirectToListAppend(), false));
 
 		return parent::batch($model);
 	}
@@ -130,7 +130,7 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 
 		if ($task == 'save')
 		{
-			$this->setRedirect(JRoute::_('index.php?option=com_xpert_testimonials&view=xpert_testimonials', false));
+			$this->setRedirect(JRoute::_('index.php?option=com_xmonials&view=xmonials', false));
 		}
 	}
 }

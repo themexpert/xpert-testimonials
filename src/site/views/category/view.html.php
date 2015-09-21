@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,11 +10,11 @@
 defined('_JEXEC') or die;
 
 /**
- * HTML View class for the Testimonials component
+ * HTML View class for the Xmonials component
  *
  * @since  1.5
  */
-class Xpert_TestimonialsViewCategory extends JViewCategory
+class XmonialsViewCategory extends JViewCategory
 {
 	/**
 	 * Execute and display a template script.
@@ -28,14 +28,14 @@ class Xpert_TestimonialsViewCategory extends JViewCategory
 		parent::commonCategoryDisplay();
 
 		// Prepare the data.
-		// Compute the testimonial slug & link url.
+		// Compute the xmonial slug & link url.
 		foreach ($this->items as $item)
 		{
 			$item->slug = $item->alias ? ($item->id . ':' . $item->alias) : $item->id;
 
 			if ($item->params->get('count_clicks', $this->params->get('count_clicks')) == 1)
 			{
-				$item->link = JRoute::_('index.php?option=com_xpert_testimonials&task=testimonial.go&id=' . $item->id);
+				$item->link = JRoute::_('index.php?option=com_xmonials&task=xmonial.go&id=' . $item->id);
 			}
 			else
 			{
@@ -75,20 +75,20 @@ class Xpert_TestimonialsViewCategory extends JViewCategory
 		}
 		else
 		{
-			$this->params->def('page_heading', JText::_('COM_XPERT_TESTIMONIALS_DEFAULT_PAGE_TITLE'));
+			$this->params->def('page_heading', JText::_('COM_XMONIALS_DEFAULT_PAGE_TITLE'));
 		}
 
 		$id = (int) @$menu->query['id'];
 
-		if ($menu && ($menu->query['option'] != 'com_xpert_testimonials' || $id != $this->category->id))
+		if ($menu && ($menu->query['option'] != 'com_xmonials' || $id != $this->category->id))
 		{
 			$this->params->set('page_subheading', $this->category->title);
 			$path = array(array('title' => $this->category->title, 'link' => ''));
 			$category = $this->category->getParent();
 
-			while (($menu->query['option'] != 'com_xpert_testimonials' || $id != $category->id) && $category->id > 1)
+			while (($menu->query['option'] != 'com_xmonials' || $id != $category->id) && $category->id > 1)
 			{
-				$path[] = array('title' => $category->title, 'link' => Xpert_TestimonialsRoute::getCategoryRoute($category->id));
+				$path[] = array('title' => $category->title, 'link' => XmonialsRoute::getCategoryRoute($category->id));
 				$category = $category->getParent();
 			}
 

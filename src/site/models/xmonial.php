@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -12,18 +12,18 @@ defined('_JEXEC') or die;
 JTable::addIncludePath(JPATH_COMPONENT_ADMINISTRATOR . '/tables');
 
 /**
- * Xpert Testimonials Component Model for a Testimonial record
+ * Xpert Xmonials Component Model for a Xmonial record
  *
  * @since  1.5
  */
-class Xpert_TestimonialsModelTestimonial extends JModelItem
+class XmonialsModelXmonial extends JModelItem
 {
 	/**
 	 * Model context string.
 	 *
 	 * @var  string
 	 */
-	protected $_context = 'com_xpert_testimonials.testimonial';
+	protected $_context = 'com_xmonials.xmonial';
 
 	/**
 	 * Method to auto-populate the model state.
@@ -39,7 +39,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelItem
 
 		// Load the object state.
 		$id	= $app->input->getInt('id');
-		$this->setState('testimonial.id', $id);
+		$this->setState('xmonial.id', $id);
 
 		// Load the parameters.
 		$this->setState('params', $params);
@@ -60,11 +60,11 @@ class Xpert_TestimonialsModelTestimonial extends JModelItem
 
 			if (empty($id))
 			{
-				$id = $this->getState('testimonial.id');
+				$id = $this->getState('xmonial.id');
 			}
 
 			// Get a level row instance.
-			$table = JTable::getInstance('Testimonial', 'Xpert_Testimonials');
+			$table = JTable::getInstance('Xmonial', 'Xmonials');
 
 			// Attempt to load the row.
 			if ($table->load($id))
@@ -102,15 +102,15 @@ class Xpert_TestimonialsModelTestimonial extends JModelItem
 	 *
 	 * @since	1.6
 	 */
-	public function getTable($type = 'Testimonial', $prefix = 'Xpert_Testimonials', $config = array())
+	public function getTable($type = 'Xmonial', $prefix = 'Xmonials', $config = array())
 	{
 		return JTable::getInstance($type, $prefix, $config);
 	}
 
 	/**
-	 * Method to increment the hit counter for the testimonial
+	 * Method to increment the hit counter for the xmonial
 	 *
-	 * @param   integer  $id  Optional ID of the testimonial.
+	 * @param   integer  $id  Optional ID of the xmonial.
 	 *
 	 * @return  boolean  True on success
 	 */
@@ -118,12 +118,12 @@ class Xpert_TestimonialsModelTestimonial extends JModelItem
 	{
 		if (empty($id))
 		{
-			$id = $this->getState('testimonial.id');
+			$id = $this->getState('xmonial.id');
 		}
 
-		$testimonial = $this->getTable('Testimonial', 'Xpert_Testimonials');
+		$xmonial = $this->getTable('Xmonial', 'Xmonials');
 
-		return $testimonial->hit($id);
+		return $xmonial->hit($id);
 	}
 
 	/**

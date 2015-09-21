@@ -12,7 +12,7 @@ var changed     = require('gulp-changed');
 var rm          = require('gulp-rimraf');
 var zip         = require('gulp-zip');
 
-var baseTask  = 'components.com_xpert_testimonials';
+var baseTask  = 'components.com_xmonials';
 var extPath   = './src';
 var mediaPath = extPath + '/media';
 
@@ -32,37 +32,37 @@ gulp.task('clean:' + baseTask,
 });
 // Copy: com
 gulp.task('clean:' +  baseTask + ':installscript', function() {
-	return gulp.src(config.wwwDir + '/administrator/components/com_xpert_testimonials/script.php', { read: false })
+	return gulp.src(config.wwwDir + '/administrator/components/com_xmonials/script.php', { read: false })
 				.pipe(rm({ force: true }));
 });
 gulp.task('clean:' +  baseTask + ':xml', function() {
-	return gulp.src(config.wwwDir + '/administrator/components/com_xpert_testimonials/xml.php', { read: false })
+	return gulp.src(config.wwwDir + '/administrator/components/com_xmonials/xml.php', { read: false })
 				.pipe(rm({ force: true }));
 });
 
 // Clean administrator
 gulp.task('clean:' + baseTask + ':componentsadmin', function() {
-	return gulp.src(config.wwwDir + '/administrator/components/com_xpert_testimonials', { read: false })
+	return gulp.src(config.wwwDir + '/administrator/components/com_xmonials', { read: false })
 				.pipe(rm({ force: true }));
 });
 // Clean site
 gulp.task('clean:' + baseTask + ':componentssite', function() {
-	return gulp.src(config.wwwDir + '/components/com_xpert_testimonials', { read: false })
+	return gulp.src(config.wwwDir + '/components/com_xmonials', { read: false })
 				.pipe(rm({ force: true }));
 });
 // Clean: site languages
 gulp.task('clean:' + baseTask + ':langsite', function() {
-	return gulp.src(config.wwwDir + '/site/language/**/*.com_xpert_testimonials.*')
+	return gulp.src(config.wwwDir + '/site/language/**/*.com_xmonials.*')
 		.pipe(rm({ force: true }));
 });
 // Clean: admin languages
 gulp.task('clean:' + baseTask + ':langadmin', function() {
-	return gulp.src(config.wwwDir + '/administrator/language/**/*.com_xpert_testimonials.*')
+	return gulp.src(config.wwwDir + '/administrator/language/**/*.com_xmonials.*')
 		.pipe(rm({ force: true }));
 });
 // Clean Media
 gulp.task('clean:' + baseTask + ':media', function() {
-	return gulp.src(config.wwwDir + '/media/com_xpert_testimonials', { read: false })
+	return gulp.src(config.wwwDir + '/media/com_xmonials', { read: false })
 				.pipe(rm({ force: true }));
 });
 
@@ -83,23 +83,23 @@ gulp.task('copy:' + baseTask,
 // Copy: com
 gulp.task('copy:' +  baseTask + ':installscript', ['clean:' + baseTask + ':installscript'], function() {
 	return gulp.src(extPath + '/script.php')
-		.pipe(gulp.dest(config.wwwDir + '/administrator/components/com_xpert_testimonials'));
+		.pipe(gulp.dest(config.wwwDir + '/administrator/components/com_xmonials'));
 });
 gulp.task('copy:' +  baseTask + ':xml', ['clean:' + baseTask + ':xml'], function() {
-	return gulp.src(extPath + '/xpert_testimonials.xml')
-		.pipe(gulp.dest(config.wwwDir + '/administrator/components/com_xpert_testimonials'));
+	return gulp.src(extPath + '/xmonials.xml')
+		.pipe(gulp.dest(config.wwwDir + '/administrator/components/com_xmonials'));
 });
 
 // Copy: admin component
 gulp.task('copy:' +  baseTask + ':componentsadmin', ['clean:' + baseTask + ':componentsadmin'], function() {
 	return gulp.src(extPath + '/admin/**')
-		.pipe(gulp.dest(config.wwwDir + '/administrator/components/com_xpert_testimonials'));
+		.pipe(gulp.dest(config.wwwDir + '/administrator/components/com_xmonials'));
 });
 
 // Copy: component
 gulp.task('copy:' +  baseTask + ':componentssite', ['clean:' + baseTask + ':componentssite'], function() {
 	return gulp.src(extPath + '/site/**')
-		.pipe(gulp.dest(config.wwwDir + '/components/com_xpert_testimonials'));
+		.pipe(gulp.dest(config.wwwDir + '/components/com_xmonials'));
 });
 // Copy: admin languages
 gulp.task('copy:' +  baseTask + ':langadmin', ['clean:' + baseTask + ':langadmin'], function() {
@@ -114,7 +114,7 @@ gulp.task('copy:' +  baseTask + ':langsite', ['clean:' + baseTask + ':langsite']
 // Copy: media
 gulp.task('copy:' +  baseTask + ':media', ['clean:' + baseTask + ':media'], function() {
 	return gulp.src(mediaPath + '/**')
-		.pipe(gulp.dest(config.wwwDir + '/media/com_xpert_testimonials'));
+		.pipe(gulp.dest(config.wwwDir + '/media/com_xmonials'));
 });
 
 // less
@@ -122,13 +122,13 @@ gulp.task('less:' + baseTask, function () {
 	return gulp.src(mediaPath + '/less/style.less')
 		.pipe(less({loadPath: [mediaPath + '/less']}))
 		.pipe(gulp.dest(mediaPath + '/css'))
-		.pipe(gulp.dest(config.wwwDir + '/media/com_xpert_testimonials/css'))
+		.pipe(gulp.dest(config.wwwDir + '/media/com_xmonials/css'))
 		.pipe(minifyCSS())
 		.pipe(rename(function (path) {
 				path.basename += '.min';
 		}))
 		.pipe(gulp.dest(mediaPath + '/css'))
-		.pipe(gulp.dest(config.wwwDir + '/media/com_xpert_testimonials/css'));
+		.pipe(gulp.dest(config.wwwDir + '/media/com_xmonials/css'));
 });
 
 // zip
@@ -136,13 +136,13 @@ gulp.task('zip:' + baseTask, function () {
 	return gulp.src(mediaPath + '/less/style.less')
 		.pipe(less({loadPath: [mediaPath + '/less']}))
 		.pipe(gulp.dest(mediaPath + '/css'))
-		.pipe(gulp.dest(config.wwwDir + '/media/com_xpert_testimonials/css'))
+		.pipe(gulp.dest(config.wwwDir + '/media/com_xmonials/css'))
 		.pipe(minifyCSS())
 		.pipe(rename(function (path) {
 				path.basename += '.min';
 		}))
 		.pipe(gulp.dest(mediaPath + '/css'))
-		.pipe(gulp.dest(config.wwwDir + '/media/com_xpert_testimonials/css'));
+		.pipe(gulp.dest(config.wwwDir + '/media/com_xmonials/css'));
 });
 
 // Watch
@@ -166,7 +166,7 @@ gulp.task('watch:' +  baseTask + ':installscript', function() {
 		gulp.watch(extPath + '/script.php', ['copy:' + baseTask + ':installscript', browserSync.reload]);
 });
 gulp.task('watch:' +  baseTask + ':xml', function() {
-		gulp.watch(extPath + '/xpert_testimonials.xml', ['copy:' + baseTask + ':xml', browserSync.reload]);
+		gulp.watch(extPath + '/xmonials.xml', ['copy:' + baseTask + ':xml', browserSync.reload]);
 });
 
 // watch: admin component

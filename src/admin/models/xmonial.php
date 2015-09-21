@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -13,11 +13,11 @@ use Joomla\Registry\Registry;
 use Joomla\String\String;
 
 /**
- * Xpert Testimonials model.
+ * Xpert Xmonials model.
  *
  * @since  1.5
  */
-class Xpert_TestimonialsModelTestimonial extends JModelAdmin
+class XmonialsModelXmonial extends JModelAdmin
 {
 	/**
 	 * The type alias for this content type.
@@ -25,7 +25,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelAdmin
 	 * @var    string
 	 * @since  3.2
 	 */
-	public $typeAlias = 'com_xpert_testimonials.testimonial';
+	public $typeAlias = 'com_xmonials.xmonial';
 
 	/**
 	 * The prefix to use with controller messages.
@@ -33,7 +33,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelAdmin
 	 * @var    string
 	 * @since  1.6
 	 */
-	protected $text_prefix = 'COM_XPERT_TESTIMONIALS';
+	protected $text_prefix = 'COM_XMONIALS';
 
 	/**
 	 * Method to test whether a record can be deleted.
@@ -55,7 +55,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelAdmin
 
 			if ($record->catid)
 			{
-				return JFactory::getUser()->authorise('core.delete', 'com_xpert_testimonials.category.' . (int) $record->catid);
+				return JFactory::getUser()->authorise('core.delete', 'com_xmonials.category.' . (int) $record->catid);
 			}
 
 			return parent::canDelete($record);
@@ -75,7 +75,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelAdmin
 	{
 		if (!empty($record->catid))
 		{
-			return JFactory::getUser()->authorise('core.edit.state', 'com_xpert_testimonials.category.' . (int) $record->catid);
+			return JFactory::getUser()->authorise('core.edit.state', 'com_xmonials.category.' . (int) $record->catid);
 		}
 
 		return parent::canEditState($record);
@@ -92,7 +92,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelAdmin
 	 *
 	 * @since   1.6
 	 */
-	public function getTable($type = 'Testimonial', $prefix = 'Xpert_TestimonialsHelper', $config = array())
+	public function getTable($type = 'Xmonial', $prefix = 'XmonialsHelper', $config = array())
 	{
 		return JTable::getInstance($type, $prefix, $config);
 	}
@@ -110,7 +110,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelAdmin
 	public function getForm($data = array(), $loadData = true)
 	{
 		// Get the form.
-		$form = $this->loadForm('com_xpert_testimonials.testimonial', 'testimonial', array('control' => 'jform', 'load_data' => $loadData));
+		$form = $this->loadForm('com_xmonials.xmonial', 'xmonial', array('control' => 'jform', 'load_data' => $loadData));
 
 		if (empty($form))
 		{
@@ -118,7 +118,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelAdmin
 		}
 
 		// Determine correct permissions to check.
-		if ($this->getState('testimonial.id'))
+		if ($this->getState('xmonial.id'))
 		{
 			// Existing record. Can only edit in selected categories.
 			$form->setFieldAttribute('catid', 'action', 'core.edit');
@@ -159,21 +159,21 @@ class Xpert_TestimonialsModelTestimonial extends JModelAdmin
 	protected function loadFormData()
 	{
 		// Check the session for previously entered form data.
-		$data = JFactory::getApplication()->getUserState('com_xpert_testimonials.edit.testimonial.data', array());
+		$data = JFactory::getApplication()->getUserState('com_xmonials.edit.xmonial.data', array());
 
 		if (empty($data))
 		{
 			$data = $this->getItem();
 
 			// Prime some default values.
-			if ($this->getState('testimonial.id') == 0)
+			if ($this->getState('xmonial.id') == 0)
 			{
 				$app = JFactory::getApplication();
-				$data->set('catid', $app->input->get('catid', $app->getUserState('com_xpert_testimonials.testimonials.filter.category_id'), 'int'));
+				$data->set('catid', $app->input->get('catid', $app->getUserState('com_xmonials.xmonials.filter.category_id'), 'int'));
 			}
 		}
 
-		$this->preprocessData('com_xpert_testimonials.testimonial', $data);
+		$this->preprocessData('com_xmonials.xmonial', $data);
 
 		return $data;
 	}
@@ -200,7 +200,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelAdmin
 			if (!empty($item->id))
 			{
 				$item->tags = new JHelperTags;
-				$item->tags->getTagIds($item->id, 'com_xpert_testimonials.testimonial');
+				$item->tags->getTagIds($item->id, 'com_xmonials.xmonial');
 				$item->metadata['tags'] = $item->tags;
 			}
 		}
@@ -240,7 +240,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelAdmin
 				$db = $this->getDbo();
 				$query = $db->getQuery(true)
 					->select('MAX(ordering)')
-					->from($db->quoteName('#__xpert_testimonials'));
+					->from($db->quoteName('#__xpert_xmonials'));
 
 				$db->setQuery($query);
 				$max = $db->loadResult();
@@ -255,7 +255,7 @@ class Xpert_TestimonialsModelTestimonial extends JModelAdmin
 			}
 		}
 
-		// Increment the testimonial version number.
+		// Increment the xmonial version number.
 		$table->version++;
 	}
 

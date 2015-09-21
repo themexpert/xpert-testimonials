@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -20,22 +20,22 @@ $this->ignore_fieldsets = array('images');
 JFactory::getDocument()->addScriptDeclaration("
 	Joomla.submitbutton = function(task)
 	{
-		if (task == 'testimonial.cancel' || document.formvalidator.isValid(document.getElementById('testimonial-form'))) {
+		if (task == 'xmonial.cancel' || document.formvalidator.isValid(document.getElementById('xmonial-form'))) {
 			" . $this->form->getField('description')->save() . "
-			Joomla.submitform(task, document.getElementById('testimonial-form'));
+			Joomla.submitform(task, document.getElementById('xmonial-form'));
 		}
 	};
 ");
 ?>
 
-<form action="<?php echo JRoute::_('index.php?option=com_xpert_testimonials&layout=edit&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="testimonial-form" class="form-validate">
+<form action="<?php echo JRoute::_('index.php?option=com_xmonials&layout=edit&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="xmonial-form" class="form-validate">
 
 	<?php echo JLayoutHelper::render('joomla.edit.title_alias', $this); ?>
 
 	<div class="form-horizontal">
 		<?php echo JHtml::_('bootstrap.startTabSet', 'myTab', array('active' => 'details')); ?>
 
-		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'details', empty($this->item->id) ? JText::_('COM_XPERT_TESTIMONIALS_NEW_TESTIMONIAL', true) : JText::_('COM_XPERT_TESTIMONIALS_EDIT_TESTIMONIAL', true)); ?>
+		<?php echo JHtml::_('bootstrap.addTab', 'myTab', 'details', empty($this->item->id) ? JText::_('COM_XMONIALS_NEW_XMONIAL', true) : JText::_('COM_XMONIALS_EDIT_XMONIAL', true)); ?>
 		<div class="row-fluid">
 			<div class="span9">
 				<div class="form-vertical">

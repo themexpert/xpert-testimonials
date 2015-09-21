@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -9,14 +9,14 @@
 
 defined('_JEXEC') or die;
 
-require_once JPATH_COMPONENT_ADMINISTRATOR . '/models/testimonial.php';
+require_once JPATH_COMPONENT_ADMINISTRATOR . '/models/xmonial.php';
 
 /**
- * Xpert Testimonials model.
+ * Xpert Xmonials model.
  *
  * @since  1.6
  */
-class Xpert_TestimonialsModelForm extends Xpert_TestimonialsModelTestimonial
+class XmonialsModelForm extends XmonialsModelXmonial
 {
 	/**
 	 * Model typeAlias string. Used for version history.
@@ -24,7 +24,7 @@ class Xpert_TestimonialsModelForm extends Xpert_TestimonialsModelTestimonial
 	 * @var    string
 	 * @since  3.2
 	 */
-	public $typeAlias = 'com_xpert_testimonials.testimonial';
+	public $typeAlias = 'com_xmonials.xmonial';
 
 	/**
 	 * Get the return URL.
@@ -51,13 +51,13 @@ class Xpert_TestimonialsModelForm extends Xpert_TestimonialsModelTestimonial
 
 		// Load state from the request.
 		$pk = $app->input->getInt('w_id');
-		$this->setState('testimonial.id', $pk);
+		$this->setState('xmonial.id', $pk);
 
 		// Add compatibility variable for default naming conventions.
 		$this->setState('form.id', $pk);
 
 		$categoryId = $app->input->getInt('catid');
-		$this->setState('testimonial.catid', $categoryId);
+		$this->setState('xmonial.catid', $categoryId);
 
 		$return = $app->input->get('return', null, 'base64');
 
@@ -85,7 +85,7 @@ class Xpert_TestimonialsModelForm extends Xpert_TestimonialsModelTestimonial
 	protected function loadFormData()
 	{
 		// Check the session for previously entered form data.
-		$data = JFactory::getApplication()->getUserState('com_xpert_testimonials.edit.testimonial.data', array());
+		$data = JFactory::getApplication()->getUserState('com_xmonials.edit.xmonial.data', array());
 
 		return $data;
 	}
@@ -101,7 +101,7 @@ class Xpert_TestimonialsModelForm extends Xpert_TestimonialsModelTestimonial
 	 */
 	public function save($data)
 	{
-		
+
 		if(parent::save($data))
 		{
 			return true;

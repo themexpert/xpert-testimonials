@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,33 +10,33 @@
 defined('_JEXEC') or die;
 
 /**
- * Xpert Testimonials Component Route Helper.
+ * Xpert Xmonials Component Route Helper.
  *
  * @since  1.5
  */
-abstract class Xpert_TestimonialsRoute
+abstract class XmonialsRoute
 {
 	protected static $lookup;
 
 	protected static $lang_lookup = array();
 
 	/**
-	 * @param   integer  The route of the testimonial
+	 * @param   integer  The route of the xmonial
 	 *
 	 * @return  string
 	 */
-	public static function getTestimonialRoute($id, $catid, $language = 0)
+	public static function getXmonialRoute($id, $catid, $language = 0)
 	{
 		$needles = array(
-			'testimonial'  => array((int) $id)
+			'xmonial'  => array((int) $id)
 		);
 
 		// Create the link
-		$link = 'index.php?option=com_xpert_testimonials&view=testimonial&id='. $id;
+		$link = 'index.php?option=com_xmonials&view=xmonial&id='. $id;
 
 		if ($catid > 1)
 		{
-			$categories = JCategories::getInstance('Xpert_Testimonials');
+			$categories = JCategories::getInstance('Xmonials');
 			$category = $categories->get($catid);
 
 			if ($category)
@@ -67,7 +67,7 @@ abstract class Xpert_TestimonialsRoute
 	}
 
 	/**
-	 * @param   integer  $id      The id of the testimonial.
+	 * @param   integer  $id      The id of the xmonial.
 	 * @param   string   $return  The return page variable.
 	 *
 	 * @return  string
@@ -77,11 +77,11 @@ abstract class Xpert_TestimonialsRoute
 		// Create the link.
 		if ($id)
 		{
-			$link = 'index.php?option=com_xpert_testimonials&task=testimonial.edit&w_id='. $id;
+			$link = 'index.php?option=com_xmonials&task=xmonial.edit&w_id='. $id;
 		}
 		else
 		{
-			$link = 'index.php?option=com_xpert_testimonials&task=testimonial.add&w_id=0';
+			$link = 'index.php?option=com_xmonials&task=xmonial.add&w_id=0';
 		}
 
 		if ($return)
@@ -108,7 +108,7 @@ abstract class Xpert_TestimonialsRoute
 		else
 		{
 			$id = (int) $catid;
-			$category = JCategories::getInstance('Xpert_Testimonials')->get($id);
+			$category = JCategories::getInstance('Xmonials')->get($id);
 		}
 
 		if ($id < 1 || !($category instanceof JCategoryNode))
@@ -120,7 +120,7 @@ abstract class Xpert_TestimonialsRoute
 			$needles = array();
 
 			// Create the link
-			$link = 'index.php?option=com_xpert_testimonials&view=category&id='.$id;
+			$link = 'index.php?option=com_xmonials&view=category&id='.$id;
 
 			$catids = array_reverse($category->getPath());
 			$needles['category'] = $catids;
@@ -180,7 +180,7 @@ abstract class Xpert_TestimonialsRoute
 		{
 			self::$lookup[$language] = array();
 
-			$component	= JComponentHelper::getComponent('com_xpert_testimonials');
+			$component	= JComponentHelper::getComponent('com_xmonials');
 
 			$attributes = array('component_id');
 			$values = array($component->id);

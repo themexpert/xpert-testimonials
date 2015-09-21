@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,11 +10,11 @@
 defined('_JEXEC') or die;
 
 /**
- * Xpert Testimonials Component Controller
+ * Xpert Xmonials Component Controller
  *
  * @since  1.5
  */
-class Xpert_TestimonialsController extends JControllerLegacy
+class XmonialsController extends JControllerLegacy
 {
 	/** 
 	 * Method to display a view.
@@ -23,7 +23,7 @@ class Xpert_TestimonialsController extends JControllerLegacy
 	 * @param   array    $urlparams  An array of safe url parameters and their variable types,
 	 *                               for valid values see {@link JFilterInput::clean()}.
 	 *
-	 * @return  Xpert_TestimonialsController  This object to support chaining.
+	 * @return  XmonialsController  This object to support chaining.
 	 *
 	 * @since   1.5
 	 */
@@ -56,7 +56,7 @@ class Xpert_TestimonialsController extends JControllerLegacy
 		);
 
 		// Check for edit form.
-		if ($vName == 'form' && !$this->checkEditId('com_xpert_testimonials.edit.testimonial', $id))
+		if ($vName == 'form' && !$this->checkEditId('com_xmonials.edit.xmonial', $id))
 		{
 			// Somehow the person just went to the form - we don't allow that.
 			return JError::raiseError(403, JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));

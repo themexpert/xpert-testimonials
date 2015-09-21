@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  3.4
  */
-class Com_Xpert_TestimonialsInstallerScript
+class Com_XmonialsInstallerScript
 {
 	/**
 	 * Function to perform changes during install
@@ -32,9 +32,9 @@ class Com_Xpert_TestimonialsInstallerScript
 		$category = JTable::getInstance('Category');
 
 		// Check if the Uncategorised category exists before adding it
-		if (!$category->load(array('extension' => 'com_xpert_testimonials', 'title' => 'Uncategorised')))
+		if (!$category->load(array('extension' => 'com_xmonials', 'title' => 'Uncategorised')))
 		{
-			$category->extension = 'com_xpert_testimonials';
+			$category->extension = 'com_xmonials';
 			$category->title = 'Uncategorised';
 			$category->description = '';
 			$category->published = 1;
@@ -50,7 +50,7 @@ class Com_Xpert_TestimonialsInstallerScript
 			// Check to make sure our data is valid
 			if (!$category->check())
 			{
-				JFactory::getApplication()->enqueueMessage(JText::sprintf('COM_XPERT_TESTIMONIALS_ERROR_INSTALL_CATEGORY', $category->getError()));
+				JFactory::getApplication()->enqueueMessage(JText::sprintf('COM_XMONIALS_ERROR_INSTALL_CATEGORY', $category->getError()));
 
 				return;
 			}
@@ -58,7 +58,7 @@ class Com_Xpert_TestimonialsInstallerScript
 			// Now store the category
 			if (!$category->store(true))
 			{
-				JFactory::getApplication()->enqueueMessage(JText::sprintf('COM_XPERT_TESTIMONIALS_ERROR_INSTALL_CATEGORY', $category->getError()));
+				JFactory::getApplication()->enqueueMessage(JText::sprintf('COM_XMONIALS_ERROR_INSTALL_CATEGORY', $category->getError()));
 
 				return;
 			}
@@ -106,81 +106,10 @@ class Com_Xpert_TestimonialsInstallerScript
 	private function insertMissingUcmRecords()
 	{
 		return true;
-		// // Insert the rows in the #__content_types table if they don't exist already
-		// $db = JFactory::getDbo();
-		//
-		// // Get the type ID for a Testimonial
-		// $query = $db->getQuery(true);
-		// $query->select($db->quoteName('type_id'))
-		// 	->from($db->quoteName('#__content_types'))
-		// 	->where($db->quoteName('type_alias') . ' = ' . $db->quote('com_xpert_testimonials.testimonial'));
-		// $db->setQuery($query);
-		//
-		// $testimonialTypeId = $db->loadResult();
-		//
-		// // Get the type ID for a Testimonial Category
-		// $query->clear('where');
-		// $query->where($db->quoteName('type_alias') . ' = ' . $db->quote('com_xpert_testimonials.category'));
-		// $db->setQuery($query);
-		//
-		// $categoryTypeId = $db->loadResult();
-		//
-		// // Set the table columns to insert table to
-		// $columnsArray = array(
-		// 	$db->quoteName('type_title'),
-		// 	$db->quoteName('type_alias'),
-		// 	$db->quoteName('table'),
-		// 	$db->quoteName('rules'),
-		// 	$db->quoteName('field_mappings'),
-		// 	$db->quoteName('router'),
-		// 	$db->quoteName('content_history_options'),
-		// );
-		//
-		// // If we have no type id for com_xpert_testimonials.testimonial insert it
-		// if (!$testimonialTypeId)
-		// {
-		// 	// Insert the data.
-		// 	$query->clear();
-		// 	$query->insert($db->quoteName('#__content_types'));
-		// 	$query->columns($columnsArray);
-		// 	$query->values(
-		// 		$db->quote('Testimonial') . ', '
-		// 		. $db->quote('com_xpert_testimonials.testimonial') . ', '
-		// 		. $db->quote('{"special":{"dbtable":"#__xpert_testimonials","key":"id","type":"Testimonial","prefix":"Xpert_TestimonialsHelper","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}') . ', '
-		// 		. $db->quote('') . ', '
-		// 		. $db->quote('{"common":{"core_content_item_id":"id","core_title":"title","core_state":"state","core_alias":"alias","core_created_time":"created","core_modified_time":"modified","core_body":"description", "core_hits":"hits","core_publish_up":"publish_up","core_publish_down":"publish_down","core_access":"access", "core_params":"params", "core_featured":"featured", "core_metadata":"metadata", "core_language":"language", "core_images":"images", "core_urls":"url", "core_version":"version", "core_ordering":"ordering", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"catid", "core_xreference":"xreference", "asset_id":"null"}, "special":{}}') . ', '
-		// 		. $db->quote('Xpert_TestimonialsHelperRoute::getTestimonialRoute') . ', '
-		// 		. $db->quote('{"formFile":"administrator\\/components\\/com_xpert_testimonials\\/models\\/forms\\/testimonial.xml", "hideFields":["asset_id","checked_out","checked_out_time","version","featured","images"], "ignoreChanges":["modified_by", "modified", "checked_out", "checked_out_time", "version", "hits"], "convertToInt":["publish_up", "publish_down", "featured", "ordering"], "displayLookup":[{"sourceColumn":"catid","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"created_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"} ]}')
-		// 	);
-		//
-		// 	$db->setQuery($query);
-		// 	$db->execute();
-		// }
-		//
-		// // If we have no type id for com_xpert_testimonials.category insert it
-		// if (!$categoryTypeId)
-		// {
-		// 	// Insert the data.
-		// 	$query->clear();
-		// 	$query->insert($db->quoteName('#__content_types'));
-		// 	$query->columns($columnsArray);
-		// 	$query->values(
-		// 		$db->quote('Xpert Testimonials Category') . ', '
-		// 		. $db->quote('com_xpert_testimonials.category') . ', '
-		// 		. $db->quote('{"special":{"dbtable":"#__categories","key":"id","type":"Category","prefix":"JTable","config":"array()"},"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}') . ', '
-		// 		. $db->quote('') . ', '
-		// 		. $db->quote('{"common":{"core_content_item_id":"id","core_title":"title","core_state":"published","core_alias":"alias","core_created_time":"created_time","core_modified_time":"modified_time","core_body":"description", "core_hits":"hits","core_publish_up":"null","core_publish_down":"null","core_access":"access", "core_params":"params", "core_featured":"null", "core_metadata":"metadata", "core_language":"language", "core_images":"null", "core_urls":"null", "core_version":"version", "core_ordering":"null", "core_metakey":"metakey", "core_metadesc":"metadesc", "core_catid":"parent_id", "core_xreference":"null", "asset_id":"asset_id"}, "special":{"parent_id":"parent_id","lft":"lft","rgt":"rgt","level":"level","path":"path","extension":"extension","note":"note"}}') . ', '
-		// 		. $db->quote('Xpert_TestimonialsHelperRoute::getCategoryRoute') . ', '
-		// 		. $db->quote('{"formFile":"administrator\\/components\\/com_categories\\/models\\/forms\\/category.xml", "hideFields":["asset_id","checked_out","checked_out_time","version","lft","rgt","level","path","extension"], "ignoreChanges":["modified_user_id", "modified_time", "checked_out", "checked_out_time", "version", "hits", "path"],"convertToInt":["publish_up", "publish_down"], "displayLookup":[{"sourceColumn":"created_user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},{"sourceColumn":"modified_user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},{"sourceColumn":"parent_id","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"}]}')
-		// 	);
-		//
-		// 	$db->setQuery($query);
-		// 	$db->execute();
-		// }
 	}
 
 	/**
-	 * Method to drop colums from #__xpert_testimonials if they still there.
+	 * Method to drop colums from #__xpert_xmonials if they still there.
 	 *
 	 * @return  void
 	 *
@@ -189,25 +118,11 @@ class Com_Xpert_TestimonialsInstallerScript
 	private function dropColumnsIfNeeded()
 	{
 		return true;
-		// $oldColumns = array(
-		// 	'approved',
-		// );
-		//
-		// $db    = JFactory::getDbo();
-		// $table = $db->getTableColumns('#__xpert_testimonials');
-		//
-		// $columns = array_intersect($oldColumns, array_keys($table));
-		//
-		// foreach ($columns as $column)
-		// {
-		// 	$sql = 'ALTER TABLE ' . $db->quoteName('#__xpert_testimonials') . ' DROP COLUMN ' . $db->quoteName($column);
-		// 	$db->setQuery($sql);
-		// 	$db->execute();
-		// }
+
 	}
 
 	/**
-	 * Method to add colums from #__xpert_testimonials if they are missing.
+	 * Method to add colums from #__xpert_xmonials if they are missing.
 	 *
 	 * @return  void
 	 *
@@ -216,15 +131,5 @@ class Com_Xpert_TestimonialsInstallerScript
 	private function addColumnsIfNeeded()
 	{
 		return true;
-		// $db    = JFactory::getDbo();
-		// $table = $db->getTableColumns('#__xpert_testimonials');
-		//
-		// if (!array_key_exists('version', $table))
-		// {
-		// 	$sql = 'ALTER TABLE ' . $db->quoteName('#__xpert_testimonials') . ' ADD COLUMN ' . $db->quoteName('version') . " int(10) unsigned NOT NULL DEFAULT '1'";
-		// 	$db->setQuery($sql);
-		// 	$db->execute();
-		// }
-		//
 	}
 }

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,11 +10,11 @@
 defined('_JEXEC') or die;
 
 /**
- * Xpert Testimonials helper.
+ * Xpert Xmonials helper.
  *
  * @since  1.6
  */
-class Xpert_TestimonialsHelper extends JHelperContent
+class XmonialsHelper extends JHelperContent
 {
 	/**
 	 * Configure the Linkbar.
@@ -25,17 +25,17 @@ class Xpert_TestimonialsHelper extends JHelperContent
 	 *
 	 * @since   1.6
 	 */
-	public static function addSubmenu($vName = 'xpert_testimonials')
+	public static function addSubmenu($vName = 'xmonials')
 	{
 		JHtmlSidebar::addEntry(
-			JText::_('COM_XPERT_TESTIMONIALS_SUBMENU_TESTIMONIALS'),
-			'index.php?option=com_xpert_testimonials&view=xpert_testimonials',
-			$vName == 'xpert_testimonials'
+			JText::_('COM_XMONIALS_SUBMENU_XMONIALS'),
+			'index.php?option=com_xmonials&view=xmonials',
+			$vName == 'xmonials'
 		);
 
 		JHtmlSidebar::addEntry(
-			JText::_('COM_XPERT_TESTIMONIALS_SUBMENU_CATEGORIES'),
-			'index.php?option=com_categories&extension=com_xpert_testimonials',
+			JText::_('COM_XMONIALS_SUBMENU_CATEGORIES'),
+			'index.php?option=com_categories&extension=com_xmonials',
 			$vName == 'categories'
 		);
 	}

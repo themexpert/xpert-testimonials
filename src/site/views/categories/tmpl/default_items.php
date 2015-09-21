@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -26,10 +26,10 @@ if (count($this->items[$this->parent->id]) > 0 && $this->maxLevelcat != 0) :
 		<div <?php echo $class; ?> >
 		<?php $class = ''; ?>
 			<h3 class="page-header item-title">
-				<a href="<?php echo JRoute::_(Xpert_TestimonialsRoute::getCategoryRoute($item->id));?>">
+				<a href="<?php echo JRoute::_(XmonialsRoute::getCategoryRoute($item->id));?>">
 					<?php echo $this->escape($item->title); ?></a>
 					<?php if ($this->params->get('show_cat_num_links_cat') == 1) :?>
-						<span class="badge badge-info tip hasTooltip" title="<?php echo JHtml::tooltipText('COM_XPERT_TESTIMONIALS_NUM_ITEMS'); ?>">
+						<span class="badge badge-info tip hasTooltip" title="<?php echo JHtml::tooltipText('COM_XMONIALS_NUM_ITEMS'); ?>">
 							<?php echo $item->numitems; ?>
 						</span>
 					<?php endif; ?>
@@ -41,7 +41,7 @@ if (count($this->items[$this->parent->id]) > 0 && $this->maxLevelcat != 0) :
 				<?php if ($this->params->get('show_subcat_desc_cat') == 1) :?>
 					<?php if ($item->description) : ?>
 						<div class="category-desc">
-				<?php echo JHtml::_('content.prepare', $item->description, '', 'com_xpert_testimonials.categories'); ?>
+				<?php echo JHtml::_('content.prepare', $item->description, '', 'com_xmonials.categories'); ?>
 						</div>
 					<?php endif; ?>
 				<?php endif; ?>

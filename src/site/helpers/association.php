@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -9,15 +9,15 @@
 
 defined('_JEXEC') or die;
 
-JLoader::register('Xpert_TestimonialsHelper', JPATH_ADMINISTRATOR . '/components/com_xpert_testimonials/helpers/xpert_testimonials.php');
+JLoader::register('XmonialsHelper', JPATH_ADMINISTRATOR . '/components/com_xmonials/helpers/xmonials.php');
 JLoader::register('CategoryHelperAssociation', JPATH_ADMINISTRATOR . '/components/com_categories/helpers/association.php');
 
 /**
- * Xpert Testimonials Component Association Helper
+ * Xpert Xmonials Component Association Helper
  *
  * @since  3.0
  */
-abstract class Xpert_TestimonialsHelperAssociation extends CategoryHelperAssociation
+abstract class XmonialsHelperAssociation extends CategoryHelperAssociation
 {
 	/**
 	 * Method to get the associations for a given item
@@ -39,7 +39,7 @@ abstract class Xpert_TestimonialsHelperAssociation extends CategoryHelperAssocia
 
 		if ($view == 'category' || $view == 'categories')
 		{
-			return self::getCategoryAssociations($id, 'com_xpert_testimonials');
+			return self::getCategoryAssociations($id, 'com_xmonials');
 		}
 
 		return array();

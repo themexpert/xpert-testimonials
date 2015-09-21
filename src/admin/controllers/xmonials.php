@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,11 +10,11 @@
 defined('_JEXEC') or die;
 
 /**
- * Xpert Testimonials list controller class.
+ * Xpert Xmonials list controller class.
  *
  * @since  1.6
  */
-class Xpert_TestimonialsControllerXpert_Testimonials extends JControllerAdmin
+class XmonialsControllerXmonials extends JControllerAdmin
 {
 	/**
 	 * The URL view item variable.
@@ -22,7 +22,7 @@ class Xpert_TestimonialsControllerXpert_Testimonials extends JControllerAdmin
 	 * @var    string
 	 * @since  12.2
 	 */
-	protected $view_item = 'testimonial';
+	protected $view_item = 'xmonial';
 
 	/**
 	 * The URL view list variable.
@@ -30,7 +30,7 @@ class Xpert_TestimonialsControllerXpert_Testimonials extends JControllerAdmin
 	 * @var    string
 	 * @since  12.2
 	 */
-	protected $view_list = 'xpert_testimonials';
+	protected $view_list = 'xmonials';
 
 	/**
 	 * Proxy for getModel
@@ -43,7 +43,7 @@ class Xpert_TestimonialsControllerXpert_Testimonials extends JControllerAdmin
 	 *
 	 * @since   1.6
 	 */
-	public function getModel($name = 'Testimonial', $prefix = 'Xpert_TestimonialsModel', $config = array('ignore_request' => true))
+	public function getModel($name = 'Xmonial', $prefix = 'XmonialsModel', $config = array('ignore_request' => true))
 	{
 		return parent::getModel($name, $prefix, $config);
 	}

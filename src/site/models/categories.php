@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.6
  */
-class Xpert_TestimonialsModelCategories extends JModelList
+class XmonialsModelCategories extends JModelList
 {
 	/**
 	 * Context string for the model type.  This is used to handle uniqueness
@@ -22,14 +22,14 @@ class Xpert_TestimonialsModelCategories extends JModelList
 	 *
 	 * @var  string
 	 */
-	protected $context = 'com_xpert_testimonials.categories';
+	protected $context = 'com_xmonials.categories';
 
 	/**
 	 * The category context (allows other extensions to derived from this model).
 	 *
 	 * @var  string
 	 */
-	protected $_extension = 'com_xpert_testimonials';
+	protected $_extension = 'com_xmonials';
 
 	private $_parent = null;
 
@@ -101,7 +101,7 @@ class Xpert_TestimonialsModelCategories extends JModelList
 
 			$options = array();
 			$options['countItems'] = $params->get('show_cat_num_links', 1) || !$params->get('show_empty_categories_cat', 0);
-			$categories = JCategories::getInstance('Xpert_Testimonials', $options);
+			$categories = JCategories::getInstance('Xmonials', $options);
 			$this->_parent = $categories->get($this->getState('filter.parentId', 'root'));
 
 			if (is_object($this->_parent))

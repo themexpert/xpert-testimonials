@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,11 +10,11 @@
 defined('_JEXEC') or die;
 
 /**
- * HTML Article View class for the Xpert Testimonials component
+ * HTML Article View class for the Xpert Xmonials component
  *
  * @since  1.5
  */
-class Xpert_TestimonialsViewForm extends JViewLegacy
+class XmonialsViewForm extends JViewLegacy
 {
 	protected $form;
 
@@ -36,11 +36,11 @@ class Xpert_TestimonialsViewForm extends JViewLegacy
 
 		if (empty($this->item->id))
 		{
-			$authorised = ($user->authorise('core.create', 'com_xpert_testimonials') || (count($user->getAuthorisedCategories('com_xpert_testimonials', 'core.create'))));
+			$authorised = ($user->authorise('core.create', 'com_xmonials') || (count($user->getAuthorisedCategories('com_xmonials', 'core.create'))));
 		}
 		else
 		{
-			$authorised = $user->authorise('core.edit', 'com_xpert_testimonials.category.'.$this->item->catid);
+			$authorised = $user->authorise('core.edit', 'com_xmonials.category.'.$this->item->catid);
 		}
 
 		if ($authorised !== true)
@@ -90,11 +90,11 @@ class Xpert_TestimonialsViewForm extends JViewLegacy
 
 		if (empty($this->item->id))
 		{
-			$head = JText::_('COM_XPERT_TESTIMONIALS_FORM_SUBMIT_TESTIMONIAL');
+			$head = JText::_('COM_XMONIALS_FORM_SUBMIT_XMONIAL');
 		}
 		else
 		{
-			$head = JText::_('COM_XPERT_TESTIMONIALS_FORM_EDIT_TESTIMONIAL');
+			$head = JText::_('COM_XMONIALS_FORM_EDIT_XMONIAL');
 		}
 
 		if ($menu)

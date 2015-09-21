@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.5
  */
-class Xpert_TestimonialsViewCategories extends JViewCategories
+class XmonialsViewCategories extends JViewCategories
 {
 	protected $item = null;
 
@@ -22,19 +22,19 @@ class Xpert_TestimonialsViewCategories extends JViewCategories
 	 * @var    string  Default title to use for page title
 	 * @since  3.2
 	 */
-	protected $defaultPageTitle = 'COM_XPERT_TESTIMONIALS_DEFAULT_PAGE_TITLE';
+	protected $defaultPageTitle = 'COM_XMONIALS_DEFAULT_PAGE_TITLE';
 
 	/**
 	 * @var    string  The name of the extension for the category
 	 * @since  3.2
 	 */
-	protected $extension = 'com_xpert_testimonials';
+	protected $extension = 'com_xmonials';
 
 	/**
 	 * @var    string  The name of the view to link individual items to
 	 * @since  3.2
 	 */
-	protected $viewName = 'testimonial';
+	protected $viewName = 'xmonial';
 
 	/**
 	 * Execute and display a template script.

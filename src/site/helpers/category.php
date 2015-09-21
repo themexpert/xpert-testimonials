@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,11 +10,11 @@
 defined('_JEXEC') or die;
 
 /**
- * Xpert Testimonials Component Category Tree.
+ * Xpert Xmonials Component Category Tree.
  *
  * @since  1.6
  */
-class Xpert_TestimonialsCategories extends JCategories
+class XmonialsCategories extends JCategories
 {
 	/**
 	 * Constructor
@@ -25,8 +25,8 @@ class Xpert_TestimonialsCategories extends JCategories
 	 */
 	public function __construct($options = array())
 	{
-		$options['table'] = '#__xpert_testimonials';
-		$options['extension'] = 'com_xpert_testimonials';
+		$options['table'] = '#__xpert_xmonials';
+		$options['extension'] = 'com_xmonials';
 
 		parent::__construct($options);
 	}

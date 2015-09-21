@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,11 +10,11 @@
 defined('_JEXEC') or die;
 
 /**
- * Methods supporting a list of testimonial records.
+ * Methods supporting a list of xmonial records.
  *
  * @since  1.6
  */
-class Xpert_TestimonialsModelXpert_Testimonials extends JModelList
+class XmonialsModelXmonials extends JModelList
 {
 	/**
 	 * Constructor.
@@ -82,7 +82,7 @@ class Xpert_TestimonialsModelXpert_Testimonials extends JModelList
 		$this->setState('filter.tag', $tag);
 
 		// Load the parameters.
-		$params = JComponentHelper::getParams('com_xpert_testimonials');
+		$params = JComponentHelper::getParams('com_xmonials');
 		$this->setState('params', $params);
 
 		// List state information.
@@ -136,7 +136,7 @@ class Xpert_TestimonialsModelXpert_Testimonials extends JModelList
 				'a.hits, a.state, a.access, a.ordering, a.language, a.publish_up, a.publish_down'
 			)
 		);
-		$query->from($db->quoteName('#__xpert_testimonials') . ' AS a');
+		$query->from($db->quoteName('#__xpert_xmonials') . ' AS a');
 
 		// Join over the language
 		$query->select('l.title AS language_title')
@@ -218,7 +218,7 @@ class Xpert_TestimonialsModelXpert_Testimonials extends JModelList
 				->join(
 					'LEFT', $db->quoteName('#__contentitem_tag_map', 'tagmap')
 					. ' ON ' . $db->quoteName('tagmap.content_item_id') . ' = ' . $db->quoteName('a.id')
-					. ' AND ' . $db->quoteName('tagmap.type_alias') . ' = ' . $db->quote('com_xpert_testimonials.testimonial')
+					. ' AND ' . $db->quoteName('tagmap.type_alias') . ' = ' . $db->quote('com_xmonials.xmonial')
 				);
 		}
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -21,7 +21,7 @@ $params = $this->state->get('params');
 <script type="text/javascript">
 	Joomla.submitbutton = function(task)
 	{
-		if (task == 'testimonial.cancel' || document.formvalidator.isValid(document.getElementById('adminForm')))
+		if (task == 'xmonial.cancel' || document.formvalidator.isValid(document.getElementById('adminForm')))
 		{
 			<?php echo $this->form->getField('description')->save(); ?>
 			Joomla.submitform(task);
@@ -34,17 +34,17 @@ $params = $this->state->get('params');
 		<?php echo $this->escape($this->params->get('page_heading')); ?>
 	</h1>
 	<?php endif; ?>
-	<form action="<?php echo JRoute::_('index.php?option=com_xpert_testimonials&view=form&w_id='.(int) $this->item->id); ?>"
+	<form action="<?php echo JRoute::_('index.php?option=com_xmonials&view=form&w_id='.(int) $this->item->id); ?>"
 		method="post" name="adminForm" id="adminForm" class="form-validate form-horizontal"
 		enctype="multipart/form-data">
 		<div class="btn-toolbar">
 			<div class="btn-group">
-				<button type="button" class="btn btn-primary" onclick="Joomla.submitbutton('testimonial.save')">
+				<button type="button" class="btn btn-primary" onclick="Joomla.submitbutton('xmonial.save')">
 					<span class="icon-ok"></span> <?php echo JText::_('JSAVE') ?>
 				</button>
 			</div>
 			<div class="btn-group">
-				<button type="button" class="btn" onclick="Joomla.submitbutton('testimonial.cancel')">
+				<button type="button" class="btn" onclick="Joomla.submitbutton('xmonial.cancel')">
 					<span class="icon-cancel"></span> <?php echo JText::_('JCANCEL') ?>
 				</button>
 			</div>
@@ -67,7 +67,7 @@ $params = $this->state->get('params');
 			<?php echo $this->form->renderField('version_note'); ?>
 		<?php endif; ?>
 
-		<?php if ($this->user->authorise('core.edit.state', 'com_xpert_testimonials.testimonial')) : ?>
+		<?php if ($this->user->authorise('core.edit.state', 'com_xmonials.xmonial')) : ?>
 			<?php echo $this->form->renderField('state'); ?>
 		<?php endif; ?>
 

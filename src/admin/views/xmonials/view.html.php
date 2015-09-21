@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -10,11 +10,11 @@
 defined('_JEXEC') or die;
 
 /**
- * View class for a list of testimonials.
+ * View class for a list of xmonials.
  *
  * @since  1.5
  */
-class Xpert_TestimonialsViewXpert_Testimonials extends JViewLegacy
+class XmonialsViewXmonials extends JViewLegacy
 {
 	protected $items;
 
@@ -33,7 +33,7 @@ class Xpert_TestimonialsViewXpert_Testimonials extends JViewLegacy
 		$this->items      = $this->get('Items');
 		$this->pagination = $this->get('Pagination');
 
-		Xpert_TestimonialsHelper::addSubmenu('xpert_testimonials');
+		XmonialsHelper::addSubmenu('xmonials');
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -54,48 +54,48 @@ class Xpert_TestimonialsViewXpert_Testimonials extends JViewLegacy
 	 */
 	protected function addToolbar()
 	{
-		require_once JPATH_COMPONENT . '/helpers/xpert_testimonials.php';
+		require_once JPATH_COMPONENT . '/helpers/xmonials.php';
 
 		$state = $this->get('State');
-		$canDo = JHelperContent::getActions('com_xpert_testimonials', 'category', $state->get('filter.category_id'));
+		$canDo = JHelperContent::getActions('com_xmonials', 'category', $state->get('filter.category_id'));
 		$user  = JFactory::getUser();
 
 		// Get the toolbar object instance
 		$bar = JToolBar::getInstance('toolbar');
 
-		JToolbarHelper::title(JText::_('COM_XPERT_TESTIMONIALS_MANAGER_TESTIMONIALS'), 'link testimonials');
+		JToolbarHelper::title(JText::_('COM_XMONIALS_MANAGER_XMONIALS'), 'link xmonials');
 
-		if (count($user->getAuthorisedCategories('com_xpert_testimonials', 'core.create')) > 0)
+		if (count($user->getAuthorisedCategories('com_xmonials', 'core.create')) > 0)
 		{
-			JToolbarHelper::addNew('testimonial.add');
+			JToolbarHelper::addNew('xmonial.add');
 		}
 
 		if ($canDo->get('core.edit'))
 		{
-			JToolbarHelper::editList('testimonial.edit');
+			JToolbarHelper::editList('xmonial.edit');
 		}
 
 		if ($canDo->get('core.edit.state'))
 		{
-			JToolbarHelper::publish('xpert_testimonials.publish', 'JTOOLBAR_PUBLISH', true);
-			JToolbarHelper::unpublish('xpert_testimonials.unpublish', 'JTOOLBAR_UNPUBLISH', true);
+			JToolbarHelper::publish('xmonials.publish', 'JTOOLBAR_PUBLISH', true);
+			JToolbarHelper::unpublish('xmonials.unpublish', 'JTOOLBAR_UNPUBLISH', true);
 
-			JToolbarHelper::archiveList('xpert_testimonials.archive');
-			JToolbarHelper::checkin('xpert_testimonials.checkin');
+			JToolbarHelper::archiveList('xmonials.archive');
+			JToolbarHelper::checkin('xmonials.checkin');
 		}
 
 		if ($state->get('filter.state') == -2 && $canDo->get('core.delete'))
 		{
-			JToolbarHelper::deleteList('', 'xpert_testimonials.delete', 'JTOOLBAR_EMPTY_TRASH');
+			JToolbarHelper::deleteList('', 'xmonials.delete', 'JTOOLBAR_EMPTY_TRASH');
 		}
 		elseif ($canDo->get('core.edit.state'))
 		{
-			JToolbarHelper::trash('xpert_testimonials.trash');
+			JToolbarHelper::trash('xmonials.trash');
 		}
  
 		// Add a batch button
-		if ($user->authorise('core.create', 'com_xpert_testimonials') && $user->authorise('core.edit', 'com_xpert_testimonials')
-			&& $user->authorise('core.edit.state', 'com_xpert_testimonials'))
+		if ($user->authorise('core.create', 'com_xmonials') && $user->authorise('core.edit', 'com_xmonials')
+			&& $user->authorise('core.edit.state', 'com_xmonials'))
 		{
 			JHtml::_('bootstrap.modal', 'collapseModal');
 			$title = JText::_('JTOOLBAR_BATCH');
@@ -107,14 +107,14 @@ class Xpert_TestimonialsViewXpert_Testimonials extends JViewLegacy
 			$bar->appendButton('Custom', $dhtml, 'batch');
 		}
 
-		if ($user->authorise('core.admin', 'com_xpert_testimonials') || $user->authorise('core.options', 'com_xpert_testimonials'))
+		if ($user->authorise('core.admin', 'com_xmonials') || $user->authorise('core.options', 'com_xmonials'))
 		{
-			JToolbarHelper::preferences('com_xpert_testimonials');
+			JToolbarHelper::preferences('com_xmonials');
 		}
 
-		JToolbarHelper::help('JHELP_COMPONENTS_TESTIMONIALS_LINKS');
+		JToolbarHelper::help('JHELP_COMPONENTS_XMONIALS_LINKS');
 
-		JHtmlSidebar::setAction('index.php?option=com_xpert_testimonials&view=xpert_testimonials');
+		JHtmlSidebar::setAction('index.php?option=com_xmonials&view=xmonials');
 
 		JHtmlSidebar::addFilter(
 			JText::_('JOPTION_SELECT_PUBLISHED'),
@@ -125,7 +125,7 @@ class Xpert_TestimonialsViewXpert_Testimonials extends JViewLegacy
 		JHtmlSidebar::addFilter(
 			JText::_('JOPTION_SELECT_CATEGORY'),
 			'filter_category_id',
-			JHtml::_('select.options', JHtml::_('category.options', 'com_xpert_testimonials'), 'value', 'text', $this->state->get('filter.category_id'))
+			JHtml::_('select.options', JHtml::_('category.options', 'com_xmonials'), 'value', 'text', $this->state->get('filter.category_id'))
 		);
 
 		JHtmlSidebar::addFilter(

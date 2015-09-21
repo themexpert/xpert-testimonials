@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -12,11 +12,11 @@ defined('_JEXEC') or die;
 use Joomla\Registry\Registry;
 
 /**
- * Xpert Testimonials Component Testimonial Model
+ * Xpert Xmonials Component Xmonial Model
  *
  * @since  1.5
  */
-class Xpert_TestimonialsModelCategory extends JModelList
+class XmonialsModelCategory extends JModelList
 {
 	/**
 	 * Category items data
@@ -65,7 +65,7 @@ class Xpert_TestimonialsModelCategory extends JModelList
 	protected $_category = null;
 
 	/**
-	 * The list of other testimonial categories.
+	 * The list of other xmonial categories.
 	 *
 	 * @var  array
 	 */
@@ -93,7 +93,7 @@ class Xpert_TestimonialsModelCategory extends JModelList
 
 			// Get the tags
 			$item->tags = new JHelperTags;
-			$item->tags->getItemTags('com_xpert_testimonials.testimonial', $item->id);
+			$item->tags->getItemTags('com_xmonials.xmonial', $item->id);
 		}
 
 		return $items;
@@ -116,7 +116,7 @@ class Xpert_TestimonialsModelCategory extends JModelList
 
 		// Select required fields from the categories.
 		$query->select($this->getState('list.select', 'a.*'))
-			->from($db->quoteName('#__xpert_testimonials') . ' AS a')
+			->from($db->quoteName('#__xpert_xmonials') . ' AS a')
 			->where('a.access IN (' . $groups . ')');
 
 		// Filter by category.
@@ -198,7 +198,7 @@ class Xpert_TestimonialsModelCategory extends JModelList
 	protected function populateState($ordering = null, $direction = null)
 	{
 		$app = JFactory::getApplication();
-		$params = JComponentHelper::getParams('com_xpert_testimonials');
+		$params = JComponentHelper::getParams('com_xmonials');
 
 		// List state information
 		$limit = $app->getUserStateFromRequest('global.list.limit', 'limit', $app->get('list_limit'), 'uint');
@@ -233,7 +233,7 @@ class Xpert_TestimonialsModelCategory extends JModelList
 
 		$user = JFactory::getUser();
 
-		if ((!$user->authorise('core.edit.state', 'com_xpert_testimonials')) && (!$user->authorise('core.edit', 'com_xpert_testimonials')))
+		if ((!$user->authorise('core.edit.state', 'com_xmonials')) && (!$user->authorise('core.edit', 'com_xmonials')))
 		{
 			// limit to published for people who can't edit or edit.state.
 			$this->setState('filter.state', 1);
@@ -273,7 +273,7 @@ class Xpert_TestimonialsModelCategory extends JModelList
 			$options['countItems'] = $params->get('show_cat_num_links_cat', 1)
 				|| $params->get('show_empty_categories', 0);
 
-			$categories = JCategories::getInstance('Xpert_Testimonials', $options);
+			$categories = JCategories::getInstance('Xmonials', $options);
 			$this->_item = $categories->get($this->getState('category.id', 'root'));
 
 			if (is_object($this->_item))

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -12,11 +12,11 @@ defined('_JEXEC') or die;
 use Joomla\String\String;
 
 /**
- * Testimonial Table class
+ * Xmonial Table class
  *
  * @since  1.5
  */
-class Xpert_TestimonialsHelperTestimonial extends JTable
+class XmonialsHelperXmonial extends JTable
 {
 	/**
 	 * Ensure the params and metadata in json encoded in the bind method
@@ -35,17 +35,17 @@ class Xpert_TestimonialsHelperTestimonial extends JTable
 	 */
 	public function __construct(&$db)
 	{
-		parent::__construct('#__xpert_testimonials', 'id', $db);
+		parent::__construct('#__xpert_xmonials', 'id', $db);
 
 		// Set the published column alias
 		$this->setColumnAlias('published', 'state');
 
-		JTableObserverTags::createObserver($this, array('typeAlias' => 'com_xpert_testimonials.testimonial'));
-		JTableObserverContenthistory::createObserver($this, array('typeAlias' => 'com_xpert_testimonials.testimonial'));
+		JTableObserverTags::createObserver($this, array('typeAlias' => 'com_xmonials.xmonial'));
+		JTableObserverContenthistory::createObserver($this, array('typeAlias' => 'com_xmonials.xmonial'));
 	}
 
 	/**
-	 * Overload the store method for the Xpert Testimonials table.
+	 * Overload the store method for the Xpert Xmonials table.
 	 *
 	 * @param   boolean	Toggle whether null values should be updated.
 	 *
@@ -67,7 +67,7 @@ class Xpert_TestimonialsHelperTestimonial extends JTable
 		}
 		else
 		{
-			// New testimonial. A testimonial created and created_by field can be set by the user,
+			// New xmonial. A xmonial created and created_by field can be set by the user,
 			// so we don't touch either of these if they are set.
 			if (!(int) $this->created)
 			{
@@ -93,11 +93,11 @@ class Xpert_TestimonialsHelperTestimonial extends JTable
 		}
 
 		// Verify that the alias is unique
-		$table = JTable::getInstance('Testimonial', 'Xpert_TestimonialsHelper');
+		$table = JTable::getInstance('Xmonial', 'XmonialsHelper');
 
 		if ($table->load(array('alias' => $this->alias, 'catid' => $this->catid)) && ($table->id != $this->id || $this->id == 0))
 		{
-			$this->setError(JText::_('COM_XPERT_TESTIMONIALS_ERROR_UNIQUE_ALIAS'));
+			$this->setError(JText::_('COM_XMONIALS_ERROR_UNIQUE_ALIAS'));
 
 			return false;
 		}
@@ -119,7 +119,7 @@ class Xpert_TestimonialsHelperTestimonial extends JTable
 	{
 		if (JFilterInput::checkAttribute(array('href', $this->url)))
 		{
-			$this->setError(JText::_('COM_XPERT_TESTIMONIALS_ERR_TABLES_PROVIDE_URL'));
+			$this->setError(JText::_('COM_XMONIALS_ERR_TABLES_PROVIDE_URL'));
 
 			return false;
 		}
@@ -127,7 +127,7 @@ class Xpert_TestimonialsHelperTestimonial extends JTable
 		// // check for valid name
 		// if (trim($this->title) == '')
 		// {
-		// 	$this->setError(JText::_('COM_XPERT_TESTIMONIALS_ERR_TABLES_TITLE'));
+		// 	$this->setError(JText::_('COM_XMONIALS_ERR_TABLES_TITLE'));
 		// 	return false;
 		// }
 		// echo 4;die;
@@ -136,7 +136,7 @@ class Xpert_TestimonialsHelperTestimonial extends JTable
 
 		$query = $db->getQuery(true)
 			->select($db->quoteName('id'))
-			->from($db->quoteName('#__xpert_testimonials'))
+			->from($db->quoteName('#__xpert_xmonials'))
 			->where($db->quoteName('title') . ' = ' . $db->quote($this->title))
 			->where($db->quoteName('catid') . ' = ' . (int) $this->catid);
 		$db->setQuery($query);
@@ -145,7 +145,7 @@ class Xpert_TestimonialsHelperTestimonial extends JTable
 
 		if ($xid && $xid != (int) $this->id)
 		{
-			// $this->setError(JText::_('COM_XPERT_TESTIMONIALS_ERR_TABLES_NAME'));
+			// $this->setError(JText::_('COM_XMONIALS_ERR_TABLES_NAME'));
 			list($title, $alias) = $this->generateNewTitle($this->catid, $this->alias, $this->title);
 			$this->title = $title;
 			$this->alias = $alias;
@@ -215,7 +215,7 @@ class Xpert_TestimonialsHelperTestimonial extends JTable
 	protected function generateNewTitle($category_id, $alias, $name)
 	{
 		// Verify that the alias is unique
-		$table = JTable::getInstance('Testimonial', 'Xpert_TestimonialsHelper');
+		$table = JTable::getInstance('Xmonial', 'XmonialsHelper');
 
 		while ($table->load(array('alias' => $alias, 'catid' => $category_id)))
 		{

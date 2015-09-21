@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -19,12 +19,12 @@ $user		= JFactory::getUser();
 $userId		= $user->get('id');
 $listOrder	= $this->escape($this->state->get('list.ordering'));
 $listDirn	= $this->escape($this->state->get('list.direction'));
-$canOrder	= $user->authorise('core.edit.state', 'com_xpert_testimonials.category');
+$canOrder	= $user->authorise('core.edit.state', 'com_xmonials.category');
 $saveOrder	= $listOrder == 'a.ordering';
 if ($saveOrder)
 {
-	$saveOrderingUrl = 'index.php?option=com_xpert_testimonials&task=xpert_testimonials.saveOrderAjax&tmpl=component';
-	JHtml::_('sortablelist.sortable', 'testimonialList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
+	$saveOrderingUrl = 'index.php?option=com_xmonials&task=xmonials.saveOrderAjax&tmpl=component';
+	JHtml::_('sortablelist.sortable', 'xmonialList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
 }
 $sortFields = $this->getSortFields();
 
@@ -46,7 +46,7 @@ JFactory::getDocument()->addScriptDeclaration('
 	};
 ');
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_xpert_testimonials&view=xpert_testimonials'); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_xmonials&view=xmonials'); ?>" method="post" name="adminForm" id="adminForm">
 <?php if (!empty( $this->sidebar)) : ?>
 	<div id="j-sidebar-container" class="span2">
 		<?php echo $this->sidebar; ?>
@@ -57,8 +57,8 @@ JFactory::getDocument()->addScriptDeclaration('
 <?php endif;?>
 		<div id="filter-bar" class="btn-toolbar">
 			<div class="filter-search btn-group pull-left">
-				<label for="filter_search" class="element-invisible"><?php echo JText::_('COM_XPERT_TESTIMONIALS_SEARCH_IN_TITLE');?></label>
-				<input type="text" name="filter_search" id="filter_search" placeholder="<?php echo JText::_('JSEARCH_FILTER'); ?>" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" class="hasTooltip" title="<?php echo JHtml::tooltipText('COM_XPERT_TESTIMONIALS_SEARCH_IN_TITLE'); ?>" />
+				<label for="filter_search" class="element-invisible"><?php echo JText::_('COM_XMONIALS_SEARCH_IN_TITLE');?></label>
+				<input type="text" name="filter_search" id="filter_search" placeholder="<?php echo JText::_('JSEARCH_FILTER'); ?>" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" class="hasTooltip" title="<?php echo JHtml::tooltipText('COM_XMONIALS_SEARCH_IN_TITLE'); ?>" />
 			</div>
 			<div class="btn-group pull-left">
 				<button type="submit" class="btn hasTooltip" title="<?php echo JHtml::tooltipText('JSEARCH_FILTER_SUBMIT'); ?>"><i class="icon-search"></i></button>
@@ -90,7 +90,7 @@ JFactory::getDocument()->addScriptDeclaration('
 				<?php echo JText::_('JGLOBAL_NO_MATCHING_RESULTS'); ?>
 			</div>
 		<?php else : ?>
-			<table class="table table-striped" id="testimonialList">
+			<table class="table table-striped" id="xmonialList">
 				<thead>
 					<tr>
 						<th width="1%" class="nowrap center hidden-phone">
@@ -129,11 +129,11 @@ JFactory::getDocument()->addScriptDeclaration('
 				<tbody>
 				<?php foreach ($this->items as $i => $item) :
 					$ordering   = ($listOrder == 'a.ordering');
-					$item->cat_link	= JRoute::_('index.php?option=com_categories&extension=com_xpert_testimonials&task=edit&type=other&cid[]='. $item->catid);
-					$canCreate  = $user->authorise('core.create',     'com_xpert_testimonials.category.' . $item->catid);
-					$canEdit    = $user->authorise('core.edit',       'com_xpert_testimonials.category.' . $item->catid);
+					$item->cat_link	= JRoute::_('index.php?option=com_categories&extension=com_xmonials&task=edit&type=other&cid[]='. $item->catid);
+					$canCreate  = $user->authorise('core.create',     'com_xmonials.category.' . $item->catid);
+					$canEdit    = $user->authorise('core.edit',       'com_xmonials.category.' . $item->catid);
 					$canCheckin = $user->authorise('core.manage',     'com_checkin') || $item->checked_out == $user->get('id') || $item->checked_out == 0;
-					$canChange  = $user->authorise('core.edit.state', 'com_xpert_testimonials.category.' . $item->catid) && $canCheckin;
+					$canChange  = $user->authorise('core.edit.state', 'com_xmonials.category.' . $item->catid) && $canCheckin;
 					?>
 					<tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->catid?>">
 						<td class="order nowrap center hidden-phone">
@@ -159,14 +159,14 @@ JFactory::getDocument()->addScriptDeclaration('
 							<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 						</td>
 						<td class="center">
-							<?php echo JHtml::_('jgrid.published', $item->state, $i, 'xpert_testimonials.', $canChange, 'cb', $item->publish_up, $item->publish_down); ?>
+							<?php echo JHtml::_('jgrid.published', $item->state, $i, 'xmonials.', $canChange, 'cb', $item->publish_up, $item->publish_down); ?>
 						</td>
 						<td class="nowrap has-context">
 							<?php if ($item->checked_out) : ?>
-								<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'xpert_testimonials.', $canCheckin); ?>
+								<?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'xmonials.', $canCheckin); ?>
 							<?php endif; ?>
 							<?php if ($canEdit) : ?>
-								<a href="<?php echo JRoute::_('index.php?option=com_xpert_testimonials&task=testimonial.edit&id='.(int) $item->id); ?>">
+								<a href="<?php echo JRoute::_('index.php?option=com_xmonials&task=xmonial.edit&id='.(int) $item->id); ?>">
 									<?php echo $this->escape($item->title); ?></a>
 							<?php else : ?>
 									<?php echo $this->escape($item->title); ?>

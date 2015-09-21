@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.1" method="upgrade">
-	<name>com_xpert_testimonials</name>
+	<name>com_xmonials</name>
 	<author>ThemeXpert</author>
 	<creationDate>Sep 2015</creationDate>
 	<copyright>(C) 2005 - 2015 Open Source Matters. All rights reserved.</copyright>
@@ -8,7 +8,7 @@
 	<authorEmail>info@themexpert.com</authorEmail>
 	<authorUrl>www.themexpert.com</authorUrl>
 	<version>1.0.0</version>
-	<description>COM_XPERT_TESTIMONIALS_XML_DESCRIPTION</description>
+	<description>COM_XMONIALS_XML_DESCRIPTION</description>
 	<scriptfile>script.php</scriptfile>
 
 	<install>
@@ -28,7 +28,7 @@
 	</update> -->
 
 	<files folder="site">
-		<filename>xpert_testimonials.php</filename>
+		<filename>xmonials.php</filename>
 		<filename>controller.php</filename>
 		<filename>router.php</filename>
 		<filename>metadata.xml</filename>
@@ -39,22 +39,22 @@
 		<folder>language</folder>
 	</files>
 	<administration>
-		<menu img="class:xpert_testimonials">com_xpert_testimonials</menu>
+		<menu img="class:xmonials">com_xmonials</menu>
 		<submenu>
 			<!--
 				Note that all & must be escaped to &amp; for the file to be valid
 				XML and be parsed by the installer
 			-->
-			<menu link="option=com_xpert_testimonials" view="links" img="class:xpert_testimonials"
-				alt="Testimonials/Item">com_xpert_testimonials_links</menu>
-			<menu link="option=com_categories&amp;extension=com_xpert_testimonials"
-				view="categories" img="class:xpert_testimonials-cat" alt="Testimonials/Categories">com_xpert_testimonials_categories</menu>
+			<menu link="option=com_xmonials" view="links" img="class:xmonials"
+				alt="Xmonials/Item">com_xmonials_links</menu>
+			<menu link="option=com_categories&amp;extension=com_xmonials"
+				view="categories" img="class:xmonials-cat" alt="Xmonials/Categories">com_xmonials_categories</menu>
 		</submenu>
 		<files folder="admin">
 			<filename>access.xml</filename>
 			<filename>config.xml</filename>
 			<filename>controller.php</filename>
-			<filename>xpert_testimonials.php</filename>
+			<filename>xmonials.php</filename>
 			<folder>controllers</folder>
 			<folder>helpers</folder>
 			<folder>language</folder>
@@ -64,7 +64,7 @@
 			<folder>views</folder>
 		</files>
 	</administration>
-	<media folder="media" destination="com_xpert_testimonials">
+	<media folder="media" destination="com_xmonials">
 		<folder>css</folder>
 		<folder>less</folder>
 	</media>

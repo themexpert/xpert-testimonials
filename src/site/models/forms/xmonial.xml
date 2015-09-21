@@ -7,7 +7,7 @@
 			name="id"
 			type="hidden"
 			class="inputbox"
-			label="TESTIMONIAL_ID_LABEL"
+			label="XMONIAL_ID_LABEL"
 			size="10"
 			default="0"
 			readonly="true" />
@@ -16,19 +16,19 @@
 			id="contenthistory"
 			name="contenthistory"
 			type="contenthistory"
-			data-typeAlias="com_xpert_testimonials.testimonial"
+			data-typeAlias="com_xmonials.xmonial"
 			label="JTOOLBAR_VERSIONS" />
 
 		<field name="title" type="text"
-			description="COM_XPERT_TESTIMONIALS_FIELD_TITLE_DESC"
-			label="COM_XPERT_TESTIMONIALS_FIELD_TITLE_LABEL"
+			description="COM_XMONIALS_FIELD_TITLE_DESC"
+			label="COM_XMONIALS_FIELD_TITLE_LABEL"
 			class="span12"
 			required="true"
 			size="30"
 		/>
 
 		<field name="alias" type="hidden"
-			description="COM_XPERT_TESTIMONIALS_FIELD_ALIAS_DESC"
+			description="COM_XMONIALS_FIELD_ALIAS_DESC"
 			label="JFIELD_ALIAS_LABEL"
 			hint="JFIELD_ALIAS_PLACEHOLDER"
 			size="45"
@@ -36,33 +36,33 @@
 
 		<field name="name" type="text"
 			class="input-xlarge input-large-text"
-			size="40" label="COM_XPERT_TESTIMONIALS_FIELD_NAME_LABEL"
-			description="COM_XPERT_TESTIMONIALS_FIELD_NAME_DESC" required="true" />
+			size="40" label="COM_XMONIALS_FIELD_NAME_LABEL"
+			description="COM_XMONIALS_FIELD_NAME_DESC" required="true" />
 
 		<field name="designation" type="text"
 			class="input-xlarge"
-			size="40" label="COM_XPERT_TESTIMONIALS_FIELD_DESIGNATION_LABEL"
-			description="COM_XPERT_TESTIMONIALS_FIELD_DESIGNATION_DESC" required="true" />
+			size="40" label="COM_XMONIALS_FIELD_DESIGNATION_LABEL"
+			description="COM_XMONIALS_FIELD_DESIGNATION_DESC" required="true" />
 
 		<field name="email" type="text"
 			class="input-xlarge"
-			size="40" label="COM_XPERT_TESTIMONIALS_FIELD_EMAIL_LABEL"
-			description="COM_XPERT_TESTIMONIALS_FIELD_EMAIL_DESC" required="true" />
+			size="40" label="COM_XMONIALS_FIELD_EMAIL_LABEL"
+			description="COM_XMONIALS_FIELD_EMAIL_DESC" required="true" />
 
 		<field name="url" type="url"
 			class="input-xlarge form-input"
 			filter="url"
-			size="40" label="COM_XPERT_TESTIMONIALS_FIELD_URL_LABEL"
-			description="COM_XPERT_TESTIMONIALS_FIELD_URL_DESC"/>
+			size="40" label="COM_XMONIALS_FIELD_URL_LABEL"
+			description="COM_XMONIALS_FIELD_URL_DESC"/>
 
 			<fields name="images">
 				<fieldset name="images" label="JGLOBAL_FIELDSET_IMAGE_OPTIONS">
 					<field
 						name="author_image" type="file"
-						label="COM_XPERT_TESTIMONIALS_FIELD_AUTHOR_IMAGE_LABEL"
-						description="COM_XPERT_TESTIMONIALS_FIELD_AUTHOR_IMAGE_DESC"
+						label="COM_XMONIALS_FIELD_AUTHOR_IMAGE_LABEL"
+						description="COM_XMONIALS_FIELD_AUTHOR_IMAGE_DESC"
 						size="10"
-						class="input-image testimonial-author-image"
+						class="input-image xmonial-author-image"
 						accept="image/*" />
 				</fieldset>
 			</fields>
@@ -71,10 +71,10 @@
 		<field name="description" type="editor"
 			buttons="false"
 			editor="codemirror"
-			description="COM_XPERT_TESTIMONIALS_FIELD_DESCRIPTION_DESC"
+			description="COM_XMONIALS_FIELD_DESCRIPTION_DESC"
 			filter="safehtml"
 			label="JGLOBAL_DESCRIPTION"
-			asset_id="com_xpert_testimonials"
+			asset_id="com_xmonials"
 			required="true"
 		/>
 
@@ -89,16 +89,16 @@
 		</field>
 
 		<field name="catid" type="categoryedit"
-			description="COM_XPERT_TESTIMONIALS_FIELD_CATEGORY_DESC"
-			extension="com_xpert_testimonials"
+			description="COM_XMONIALS_FIELD_CATEGORY_DESC"
+			extension="com_xmonials"
 			label="JCATEGORY"
 			required="true"
 		/>
 
 		<field name="url" type="url"
 			filter="url"
-			description="COM_XPERT_TESTIMONIALS_FIELD_URL_DESC"
-			label="COM_XPERT_TESTIMONIALS_FIELD_URL_LABEL"
+			description="COM_XMONIALS_FIELD_URL_DESC"
+			label="COM_XMONIALS_FIELD_URL_LABEL"
 			size="45"
 		/>
 

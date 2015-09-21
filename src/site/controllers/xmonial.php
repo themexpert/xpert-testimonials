@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -16,11 +16,11 @@ use Joomla\Utilities\ArrayHelper;
 use Joomla\Registry\Registry;
 
 /**
- * Xpert Testimonials class.
+ * Xpert Xmonials class.
  *
  * @since  1.5
  */
-class Xpert_TestimonialsControllerTestimonial extends JControllerForm
+class XmonialsControllerXmonial extends JControllerForm
 {
 	/**
 	 * The uploadedfile
@@ -240,7 +240,7 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 	public function save($key = null, $urlVar = 'w_id')
 	{
 		$app	= JFactory::getApplication();
-		$model	= $this->getModel('Form', 'Xpert_TestimonialsModel');
+		$model	= $this->getModel('Form', 'XmonialsModel');
 
 		// Get the user data.
 		$data = $app->input->post->get('jform', array(), 'array');
@@ -281,8 +281,8 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 			$data = $app->input->post->get('jform', array(), 'array');
 
 			// Save the data in the session.
-			$app->setUserState('com_xpert_testimonials.edit.testimonial.data', $data);
-			$this->setRedirect(JRoute::_('index.php?option=com_xpert_testimonials&view=form&layout=edit', false));
+			$app->setUserState('com_xmonials.edit.xmonial.data', $data);
+			$this->setRedirect(JRoute::_('index.php?option=com_xmonials&view=form&layout=edit', false));
 
 			return false;
 
@@ -305,12 +305,12 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 		// Check for errors.
 		if ($return === false)
 		{
-			$app->setUserState('com_xpert_testimonials.edit.testimonial.data', $data);
-			$this->setRedirect(JRoute::_('index.php?option=com_xpert_testimonials&view=form&layout=edit', false));
+			$app->setUserState('com_xmonials.edit.xmonial.data', $data);
+			$this->setRedirect(JRoute::_('index.php?option=com_xmonials&view=form&layout=edit', false));
 			return false;
 		}else{
-			$app->setUserState('com_xpert_testimonials.edit.testimonial.data', '');
-			$this->setRedirect($this->getReturnPage(),JText::_('COM_XPERT_TESTIMONIALS_SUBMIT_SAVE_SUCCESS'));
+			$app->setUserState('com_xmonials.edit.xmonial.data', '');
+			$this->setRedirect($this->getReturnPage(),JText::_('COM_XMONIALS_SUBMIT_SAVE_SUCCESS'));
 		}
 
 		return $result;
@@ -329,7 +329,7 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 		$params = JComponentHelper::getParams('com_media');
 		$image_path = $params->get('image_path', 'images');
 		define('COM_MEDIA_BASE',    JPATH_ROOT . '/' . $image_path);
-		$pathFolder = COM_MEDIA_BASE .'/xpert_testimonials';
+		$pathFolder = COM_MEDIA_BASE .'/xmonials';
 		if( !JFolder::exists($pathFolder) )
 		{
 				try{
@@ -337,7 +337,7 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 				}
 				catch (Exception $e)
 				{
-						echo JText::sprintf('COM_XPERT_TESTIMONIALS_ERROR_CREATE_FOLDER', $e->getCode(), $e->getMessage()) . '<br />';
+						echo JText::sprintf('COM_XMONIALS_ERROR_CREATE_FOLDER', $e->getCode(), $e->getMessage()) . '<br />';
 						return false;
 				}
 		}
@@ -353,7 +353,7 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 			//Set up the source and destination of the file
 			$src = $file['tmp_name'];
 			$dest = $pathFolder . '/' . $filename;
-			$url = $image_path . '/xpert_testimonials/' . $filename;
+			$url = $image_path . '/xmonials/' . $filename;
 
 			//First check if the file has the right extension, we need jpg only
 			if (
@@ -368,11 +368,11 @@ class Xpert_TestimonialsControllerTestimonial extends JControllerForm
 			   if ( JFile::upload($src, $dest) ) {
 			      $return[$key] = $url; 
 			   } else {
-						JError::raiseWarning(100, JText::_('COM_XPERT_TESTIMONIALS_ERROR_UNABLE_TO_UPLOAD_FILE'));
+						JError::raiseWarning(100, JText::_('COM_XMONIALS_ERROR_UNABLE_TO_UPLOAD_FILE'));
 						return false;
 			   }
 			} else {
-		   	JError::raiseWarning(100, JText::_('COM_XPERT_TESTIMONIALS_ERROR_UNABLE_TO_UPLOAD_FILE'));
+		   	JError::raiseWarning(100, JText::_('COM_XMONIALS_ERROR_UNABLE_TO_UPLOAD_FILE'));
 				return false;
 			}
 

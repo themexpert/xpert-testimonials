@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  com_xpert_testimonials
+ * @subpackage  com_xmonials
  *
  * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -19,10 +19,10 @@ $params = &$this->item->params;
 // Get the user object.
 $user = JFactory::getUser();
 
-// Check if user is allowed to add/edit based on testimonials permissinos.
-$canEdit = $user->authorise('core.edit', 'com_xpert_testimonials.category.' . $this->category->id);
-$canCreate = $user->authorise('core.create', 'com_xpert_testimonials');
-$canEditState = $user->authorise('core.edit.state', 'com_xpert_testimonials');
+// Check if user is allowed to add/edit based on xmonials permissinos.
+$canEdit = $user->authorise('core.edit', 'com_xmonials.category.' . $this->category->id);
+$canCreate = $user->authorise('core.create', 'com_xmonials');
+$canEditState = $user->authorise('core.edit.state', 'com_xmonials');
 
 $n = count($this->items);
 $listOrder	= $this->escape($this->state->get('list.ordering'));
@@ -30,7 +30,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 ?>
 
 <?php if (empty($this->items)) : ?>
-	<p> <?php echo JText::_('COM_XPERT_TESTIMONIALS_NO_TESTIMONIALS'); ?></p>
+	<p> <?php echo JText::_('COM_XMONIALS_NO_XMONIALS'); ?></p>
 <?php else : ?>
 
 <form action="<?php echo htmlspecialchars(JUri::getInstance()->toString()); ?>" method="post" name="adminForm" id="adminForm">
@@ -71,7 +71,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 								<span class="label label-warning">Unpublished</span>
 							<?php endif; ?>
 
-							<h3 class="title testimonial-title">
+							<h3 class="title xmonial-title">
 								<?php echo $item->name; ?> <small><?php echo $item->designation; ?></small>
 							</h3>
 
@@ -87,7 +87,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 							</p>
 
 						</div>
-						<?php $tagsData = $item->tags->getItemTags('com_xpert_testimonials.testimonial', $item->id); ?>
+						<?php $tagsData = $item->tags->getItemTags('com_xmonials.xmonial', $item->id); ?>
 						<?php if ($this->params->get('show_tags', 1)) : ?>
 							<?php $this->item->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
 							<?php echo $this->item->tagLayout->render($tagsData); ?>
@@ -119,7 +119,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 			<?php endforeach; ?>
 		</ul>
 
-		<?php // Code to add a link to submit a testimonial. ?>
+		<?php // Code to add a link to submit a xmonial. ?>
 		<?php /* if ($canCreate) : // TODO This is not working due to some problem in the router, I think. Ref issue #23685 ?>
 			<?php echo JHtml::_('icon.create', $item, $item->params); ?>
 		<?php  endif; */ ?>
