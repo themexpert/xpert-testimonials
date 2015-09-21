@@ -70,6 +70,21 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 							if ($this->items[$i]->state == 0) : ?>
 								<span class="label label-warning">Unpublished</span>
 							<?php endif; ?>
+							<?php $images = json_decode($item->images); ?>
+							<?php  if (isset($images->author_image) and !empty($images->author_image)) : ?>
+								<?php $imgfloat = (empty($images->float_author_image)) ? $this->params->get('float_author_image') : $images->float_author_image; ?>
+								<div class="img-intro-<?php echo htmlspecialchars($imgfloat); ?>">
+									<img
+									<?php if ($images->author_image_caption):
+										echo 'class="caption"'.' title="' .htmlspecialchars($images->author_image_caption) .'"';
+									endif; ?>
+									src="<?php echo htmlspecialchars($images->author_image); ?>" alt="<?php echo htmlspecialchars($images->author_image_alt); ?>"/>
+								</div>
+							<?php else: ?>
+								<div class="img-intro-left">
+									<img src="http://www.gravatar.com/avatar/<?php echo md5( strtolower( trim($item->email) ) ); ?>" />
+								</div>
+							<?php endif; ?>
 
 							<h3 class="title xmonial-title">
 								<?php echo $item->name; ?> <small><?php echo $item->designation; ?></small>
@@ -94,20 +109,6 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 						<?php endif; ?>
 
 						<?php if (($this->params->get('show_link_description')) and ($item->description != '')) : ?>
-							<?php $images = json_decode($item->images); ?>
-							<?php  if (isset($images->author_image) and !empty($images->author_image)) : ?>
-								<?php $imgfloat = (empty($images->float_author_image)) ? $this->params->get('float_author_image') : $images->float_author_image; ?>
-								<div class="img-intro-<?php echo htmlspecialchars($imgfloat); ?>">
-									<img
-									<?php if ($images->author_image_caption):
-										echo 'class="caption"'.' title="' .htmlspecialchars($images->author_image_caption) .'"';
-									endif; ?>
-									src="<?php echo htmlspecialchars($images->author_image); ?>" alt="<?php echo htmlspecialchars($images->author_image_alt); ?>"/>
-								</div>
-							<?php else: ?>
-								<img src="http://www.gravatar.com/avatar/<?php echo md5( strtolower( trim($item->email) ) ); ?>" />
-							<?php endif; ?>
-
 							<p class="description">
 								<?php echo $item->description; ?>
 							</p>

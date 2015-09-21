@@ -10,7 +10,7 @@
 	<version>1.0.0</version>
 	<description>COM_XMONIALS_XML_DESCRIPTION</description>
 	<scriptfile>script.php</scriptfile>
-
+ 
 	<install>
 		<sql>
 			<file charset="utf8" driver="mysql">sql/install.mysql.sql</file>

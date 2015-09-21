@@ -8,7 +8,7 @@
  */
 
 defined('_JEXEC') or die;
-
+ 
 jimport('joomla.filesystem.file');
 jimport('joomla.filesystem.folder');
 
@@ -366,7 +366,7 @@ class XmonialsControllerXmonial extends JControllerForm
 				$ext == 'bmp'
 			) {
 			   if ( JFile::upload($src, $dest) ) {
-			      $return[$key] = $url; 
+			      $return[$key] = $url;
 			   } else {
 						JError::raiseWarning(100, JText::_('COM_XMONIALS_ERROR_UNABLE_TO_UPLOAD_FILE'));
 						return false;
