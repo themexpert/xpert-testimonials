@@ -8,7 +8,7 @@
  */
 
 defined('_JEXEC') or die;
- 
+
 jimport('joomla.filesystem.file');
 jimport('joomla.filesystem.folder');
 
@@ -345,7 +345,8 @@ class XmonialsControllerXmonial extends JControllerForm
 		// Perform basic checks on file info before attempting anything
 		foreach ($files as $key=>$file)
 		{
-			//Clean up filename to get rid of strange characters like spaces etc
+      if(empty($file['tmp_name'])) continue;
+      //Clean up filename to get rid of strange characters like spaces etc
 			$filename = JFile::makeSafe($file['name']);
 			$ext = strtolower(JFile::getExt($filename));
 			$filename = md5($filename.time()).'.'.$ext;
