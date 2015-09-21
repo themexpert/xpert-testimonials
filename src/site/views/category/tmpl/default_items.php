@@ -94,26 +94,24 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 						<?php endif; ?>
 
 						<?php if (($this->params->get('show_link_description')) and ($item->description != '')) : ?>
-						<?php $images = json_decode($item->images); ?>
-						<?php  if (isset($images->author_image) and !empty($images->author_image)) : ?>
-						<?php $imgfloat = (empty($images->float_author_image)) ? $this->params->get('float_author_image') : $images->float_author_image; ?>
-						<div class="img-intro-<?php echo htmlspecialchars($imgfloat); ?>"> <img
-							<?php if ($images->author_image_caption):
-								echo 'class="caption"'.' title="' .htmlspecialchars($images->author_image_caption) .'"';
-							endif; ?>
-							src="<?php echo htmlspecialchars($images->author_image); ?>" alt="<?php echo htmlspecialchars($images->author_image_alt); ?>"/> </div>
-						<?php endif; ?>
-						<?php  if (isset($images->image_second) and !empty($images->image_second)) : ?>
-						<?php $imgfloat = (empty($images->float_second)) ? $this->params->get('float_second') : $images->float_second; ?>
-						<div class="pull-<?php echo htmlspecialchars($imgfloat); ?> item-image"> <img
-						<?php if ($images->image_second_caption):
-							echo 'class="caption"'.' title="' .htmlspecialchars($images->image_second_caption) .'"';
-						endif; ?>
-						src="<?php echo htmlspecialchars($images->image_second); ?>" alt="<?php echo htmlspecialchars($images->image_second_alt); ?>"/> </div>
-						<?php endif; ?>
-						<p class="description">
-							<?php echo $item->description; ?>
-						</p>
+							<?php $images = json_decode($item->images); ?>
+							<?php  if (isset($images->author_image) and !empty($images->author_image)) : ?>
+								<?php $imgfloat = (empty($images->float_author_image)) ? $this->params->get('float_author_image') : $images->float_author_image; ?>
+								<div class="img-intro-<?php echo htmlspecialchars($imgfloat); ?>">
+									<img
+									<?php if ($images->author_image_caption):
+										echo 'class="caption"'.' title="' .htmlspecialchars($images->author_image_caption) .'"';
+									endif; ?>
+									src="<?php echo htmlspecialchars($images->author_image); ?>" alt="<?php echo htmlspecialchars($images->author_image_alt); ?>"/>
+								</div>
+							<?php else: ?>
+								<img src="http://www.gravatar.com/avatar/<?php echo md5( strtolower( trim($item->email) ) ); ?>" />
+							<?php endif; ?>
+
+							<p class="description">
+								<?php echo $item->description; ?>
+							</p>
+
 						<?php endif; ?>
 
 						</li>
